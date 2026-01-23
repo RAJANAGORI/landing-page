@@ -289,6 +289,6 @@
     // Console message for developers
     console.log('%c🦅 Nightingale v2.0', 'color: #7395AE; font-size: 20px; font-weight: bold;');
     console.log('%cDocker for Pentesters - Landing Page', 'color: #A1D6E2; font-size: 14px;');
-    console.log('%cBuilt with ❤️ for the security community', 'color: #718096; font-size: 12px;');
+    console.log('%cBuilt with ❤️ for the security community', 'color: #7A8A9A; font-size: 12px;');
 
 })();

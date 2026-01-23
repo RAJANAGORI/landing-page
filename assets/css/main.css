@@ -5,57 +5,63 @@
 
 /* CSS Variables */
 :root {
-    /* Colors - Matching Nightingale GUI Tool Color Scheme from globals.css */
-    /* Background: Dark Gray (#333333) - hsl(0, 0%, 20%) */
-    --background: #333333;
-    --background-dark: #1F1F1F;
-    --background-light: #404040;
+    /* Colors - Matching Nightingale GUI Tool Color Scheme */
+    /* Primary: Slate Blue (#7395AE) */
+    --primary: #7395AE;
+    --primary-dark: #5A7A91;
+    --primary-light: #8FAEC4;
+    --primary-glow: rgba(115, 149, 174, 0.3);
     
-    /* Foreground: Light Gray (#DDDDDD) - hsl(0, 0%, 87%) */
-    --foreground: #DDDDDD;
-    --foreground-dark: #999999;
+    /* Background: Very Light Gray (#F0F4F8) */
+    --background: #F0F4F8;
+    --background-dark: #E1E8ED;
+    --background-light: #FFFFFF;
     
-    /* Primary/Accent: Lime Green (#00FF00) - hsl(120, 100%, 50%) */
-    --primary: #00FF00;
-    --primary-dark: #00CC00;
-    --primary-light: #33FF33;
-    --primary-glow: rgba(0, 255, 0, 0.3);
+    /* Accent: Soft Blue (#A1D6E2) */
+    --accent: #A1D6E2;
+    --accent-dark: #7FC4D4;
+    --accent-light: #B8E0EA;
     
-    /* Secondary: Slightly lighter dark gray (#404040) - hsl(0, 0%, 25%) */
-    --secondary: #404040;
-    --secondary-light: #4D4D4D;
+    /* Foreground: Dark text for light background */
+    --foreground: #2C3E50;
+    --foreground-dark: #1A252F;
+    --foreground-light: #5A6C7D;
     
-    /* Card: Very dark gray (#1F1F1F) - hsl(0, 0%, 12%) */
-    --card: #1F1F1F;
-    --card-foreground: #DDDDDD;
+    /* Secondary: Medium gray */
+    --secondary: #B8C5D1;
+    --secondary-light: #D1DCE5;
     
-    /* Muted: Muted gray (#4D4D4D) - hsl(0, 0%, 30%) */
-    --muted: #4D4D4D;
-    --muted-foreground: #999999;
+    /* Card: White with subtle border */
+    --card: #FFFFFF;
+    --card-foreground: #2C3E50;
     
-    /* Border: Subtle border (#595959) - hsl(0, 0%, 35%) */
-    --border: #595959;
+    /* Muted: Light gray for secondary text */
+    --muted: #B8C5D1;
+    --muted-foreground: #5A6C7D; /* Improved contrast for WCAG AA compliance */
+    
+    /* Border: Subtle border */
+    --border: #D1DCE5;
     
     /* Text colors */
-    --text-primary: #DDDDDD;
-    --text-secondary: #999999;
-    --text-light: #666666;
+    --text-primary: #2C3E50;
+    --text-secondary: #5A6C7D;
+    --text-light: #7A8A9A;
     --white: #FFFFFF;
     --black: #000000;
     
-    /* Destructive: Bright Red (#FF0000) - hsl(0, 100%, 50%) */
-    --destructive: #FF0000;
+    /* Destructive: Red */
+    --destructive: #E74C3C;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #00FF00 0%, #33FF33 100%);
-    --gradient-hero: linear-gradient(135deg, #1F1F1F 0%, #333333 50%, #1F1F1F 100%);
-    --gradient-card: linear-gradient(135deg, rgba(0, 255, 0, 0.1) 0%, rgba(0, 255, 0, 0.05) 100%);
+    --gradient-primary: linear-gradient(135deg, #7395AE 0%, #8FAEC4 100%);
+    --gradient-hero: linear-gradient(135deg, #F0F4F8 0%, #E1E8ED 50%, #F0F4F8 100%);
+    --gradient-card: linear-gradient(135deg, rgba(115, 149, 174, 0.1) 0%, rgba(161, 214, 226, 0.05) 100%);
     
     /* Shadows */
-    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-    --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
-    --shadow-xl: 0 20px 40px rgba(0,0,0,0.2);
+    --shadow-sm: 0 2px 4px rgba(44, 62, 80, 0.05);
+    --shadow-md: 0 4px 6px rgba(44, 62, 80, 0.1);
+    --shadow-lg: 0 10px 25px rgba(44, 62, 80, 0.15);
+    --shadow-xl: 0 20px 40px rgba(44, 62, 80, 0.2);
     --shadow-glow: 0 0 30px rgba(115, 149, 174, 0.3);
     
     /* Spacing */
@@ -114,16 +120,16 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(31, 31, 31, 0.95);
+    background: rgba(240, 244, 248, 0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+    border-bottom: 1px solid rgba(115, 149, 174, 0.2);
     transition: all var(--transition-base);
 }
 
 .navbar.scrolled {
-    background: rgba(31, 31, 31, 0.98);
+    background: rgba(240, 244, 248, 0.98);
     box-shadow: var(--shadow-md);
-    border-bottom-color: rgba(0, 255, 0, 0.3);
+    border-bottom-color: rgba(115, 149, 174, 0.3);
 }
 
 .nav-content {
@@ -199,7 +205,7 @@ body {
 .btn-nav {
     padding: 0.5rem 1.5rem;
     background: var(--primary);
-    color: var(--black) !important;
+    color: var(--foreground-dark) !important; /* Dark text for WCAG AA compliance */
     border-radius: var(--radius-md);
     border: none;
     font-weight: 700;
@@ -228,7 +234,6 @@ body {
     background: var(--primary);
     border-radius: 2px;
     transition: all var(--transition-base);
-    box-shadow: 0 0 5px var(--primary-glow);
 }
 
 /* Hero Section */
@@ -264,11 +269,11 @@ body {
 .orb-1 {
     width: 500px;
     height: 500px;
-    background: var(--primary);
+    background: var(--accent);
     top: -250px;
     left: -250px;
     animation-delay: 0s;
-    box-shadow: 0 0 100px var(--primary-glow);
+    box-shadow: 0 0 100px rgba(161, 214, 226, 0.4);
 }
 
 .orb-2 {
@@ -278,17 +283,17 @@ body {
     bottom: -200px;
     right: -200px;
     animation-delay: 5s;
-    box-shadow: 0 0 80px var(--primary-glow);
+    box-shadow: 0 0 80px rgba(115, 149, 174, 0.4);
 }
 
 .orb-3 {
     width: 300px;
     height: 300px;
-    background: var(--primary-light);
+    background: var(--accent-light);
     top: 50%;
     right: 10%;
     animation-delay: 10s;
-    box-shadow: 0 0 60px var(--primary-glow);
+    box-shadow: 0 0 60px rgba(184, 224, 234, 0.4);
 }
 
 .grid-pattern {
@@ -298,8 +303,8 @@ body {
     right: 0;
     bottom: 0;
     background-image: 
-        linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+        linear-gradient(rgba(115, 149, 174, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(115, 149, 174, 0.1) 1px, transparent 1px);
     background-size: 50px 50px;
     opacity: 0.3;
 }
@@ -323,30 +328,26 @@ body {
     max-width: 280px;
     width: 100%;
     height: auto;
-    filter: drop-shadow(0 0 20px rgba(0, 255, 0, 0.4)) 
-            drop-shadow(0 0 40px rgba(0, 255, 0, 0.2))
-            brightness(1.1);
+    filter: drop-shadow(0 0 20px rgba(115, 149, 174, 0.3)) 
+            drop-shadow(0 0 40px rgba(161, 214, 226, 0.2));
     animation: logoGlow 3s ease-in-out infinite;
     transition: transform var(--transition-base);
 }
 
 .hero-logo:hover {
     transform: scale(1.05);
-    filter: drop-shadow(0 0 30px rgba(0, 255, 0, 0.6)) 
-            drop-shadow(0 0 60px rgba(0, 255, 0, 0.3))
-            brightness(1.2);
+    filter: drop-shadow(0 0 30px rgba(115, 149, 174, 0.5)) 
+            drop-shadow(0 0 60px rgba(161, 214, 226, 0.3));
 }
 
 @keyframes logoGlow {
     0%, 100% {
-        filter: drop-shadow(0 0 20px rgba(0, 255, 0, 0.4)) 
-                drop-shadow(0 0 40px rgba(0, 255, 0, 0.2))
-                brightness(1.1);
+        filter: drop-shadow(0 0 20px rgba(115, 149, 174, 0.3)) 
+                drop-shadow(0 0 40px rgba(161, 214, 226, 0.2));
     }
     50% {
-        filter: drop-shadow(0 0 30px rgba(0, 255, 0, 0.6)) 
-                drop-shadow(0 0 60px rgba(0, 255, 0, 0.3))
-                brightness(1.15);
+        filter: drop-shadow(0 0 30px rgba(115, 149, 174, 0.5)) 
+                drop-shadow(0 0 60px rgba(161, 214, 226, 0.3));
     }
 }
 
@@ -355,14 +356,14 @@ body {
     align-items: center;
     gap: var(--spacing-xs);
     padding: 0.5rem 1.5rem;
-    background: rgba(0, 255, 0, 0.1);
+    background: rgba(115, 149, 174, 0.15);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 255, 0, 0.3);
+    border: 1px solid rgba(115, 149, 174, 0.3);
     border-radius: 50px;
     margin-bottom: var(--spacing-md);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+    box-shadow: 0 0 20px rgba(115, 149, 174, 0.2);
 }
 
 .badge-text {
@@ -396,7 +397,7 @@ body {
 .title-line.highlight {
     font-size: 0.9em;
     color: var(--primary);
-    text-shadow: 0 0 30px var(--primary-glow), 0 0 60px var(--primary-glow);
+    text-shadow: 0 0 20px rgba(115, 149, 174, 0.3);
 }
 
 .hero-description {
@@ -432,7 +433,7 @@ body {
 
 .btn-primary {
     background: var(--primary);
-    color: var(--black);
+    color: var(--foreground-dark); /* Dark text for WCAG AA compliance (4.8:1 ratio) */
     box-shadow: 0 0 20px var(--primary-glow), var(--shadow-lg);
     font-weight: 700;
 }
@@ -440,18 +441,19 @@ body {
 .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 0 30px var(--primary-glow), var(--shadow-xl);
-    background: var(--primary-light);
+    background: var(--primary-dark);
+    color: var(--foreground-dark); /* Maintain dark text on hover */
 }
 
 .btn-secondary {
-    background: rgba(0, 255, 0, 0.1);
+    background: rgba(115, 149, 174, 0.1);
     color: var(--primary);
-    border: 2px solid rgba(0, 255, 0, 0.3);
+    border: 2px solid rgba(115, 149, 174, 0.3);
     backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-    background: rgba(0, 255, 0, 0.2);
+    background: rgba(115, 149, 174, 0.2);
     border-color: var(--primary);
     transform: translateY(-3px);
     box-shadow: 0 0 20px var(--primary-glow);
@@ -473,15 +475,15 @@ body {
 
 .stat-item {
     padding: var(--spacing-md);
-    background: rgba(0, 255, 0, 0.05);
+    background: rgba(115, 149, 174, 0.08);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 255, 0, 0.2);
+    border: 1px solid rgba(115, 149, 174, 0.2);
     border-radius: var(--radius-md);
     transition: all var(--transition-base);
 }
 
 .stat-item:hover {
-    background: rgba(0, 255, 0, 0.1);
+    background: rgba(115, 149, 174, 0.15);
     transform: translateY(-5px);
     border-color: var(--primary);
     box-shadow: 0 0 20px var(--primary-glow);
@@ -529,11 +531,10 @@ body {
 .mouse {
     width: 30px;
     height: 50px;
-    border: 2px solid rgba(0, 255, 0, 0.5);
+    border: 2px solid rgba(115, 149, 174, 0.5);
     border-radius: 15px;
     position: relative;
     margin: 0 auto 10px;
-    box-shadow: 0 0 10px var(--primary-glow);
 }
 
 .wheel {
@@ -590,7 +591,7 @@ section {
     display: inline-block;
     padding: 0.5rem 1.5rem;
     background: var(--primary);
-    color: var(--black);
+    color: var(--foreground-dark); /* Dark text for WCAG AA compliance */
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 600;
@@ -628,10 +629,11 @@ section {
     padding: var(--spacing-md);
     background: var(--card);
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(0, 255, 0, 0.2);
+    border: 1px solid rgba(115, 149, 174, 0.2);
     transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
+    box-shadow: var(--shadow-sm);
 }
 
 .feature-card::before {
@@ -652,7 +654,7 @@ section {
     transform: translateY(-10px);
     box-shadow: 0 0 30px var(--primary-glow), var(--shadow-xl);
     border-color: var(--primary);
-    background: var(--background-dark);
+    background: var(--background);
 }
 
 .feature-card:hover::before {
@@ -669,7 +671,7 @@ section {
     justify-content: center;
     margin-bottom: var(--spacing-sm);
     font-size: 1.5rem;
-    color: var(--black);
+    color: var(--white);
     transition: transform var(--transition-base);
     box-shadow: 0 0 15px var(--primary-glow);
 }
@@ -705,10 +707,11 @@ section {
     padding: var(--spacing-md);
     background: var(--card);
     border-radius: var(--radius-lg);
-    border: 2px solid rgba(0, 255, 0, 0.2);
+    border: 2px solid rgba(115, 149, 174, 0.2);
     transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
+    box-shadow: var(--shadow-sm);
 }
 
 .tool-category::after {
@@ -718,7 +721,7 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--primary);
+    background: var(--accent);
     opacity: 0;
     transition: opacity var(--transition-base);
     z-index: 0;
@@ -728,7 +731,7 @@ section {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 0 30px var(--primary-glow), var(--shadow-xl);
     border-color: var(--primary);
-    background: var(--background-dark);
+    background: var(--background);
 }
 
 .tool-category:hover::after {
@@ -745,7 +748,7 @@ section {
     justify-content: center;
     margin-bottom: var(--spacing-sm);
     font-size: 2rem;
-    color: var(--black);
+    color: var(--white);
     position: relative;
     z-index: 1;
     transition: transform var(--transition-base);
@@ -784,18 +787,18 @@ section {
 
 .tool-list li {
     padding: 0.4rem 1rem;
-    background: rgba(0, 255, 0, 0.1);
+    background: rgba(115, 149, 174, 0.1);
     border-radius: var(--radius-sm);
     font-size: 0.9rem;
     font-weight: 500;
     color: var(--primary);
     transition: all var(--transition-fast);
-    border: 1px solid rgba(0, 255, 0, 0.2);
+    border: 1px solid rgba(115, 149, 174, 0.2);
 }
 
 .tool-list li:hover {
     background: var(--primary);
-    color: var(--black);
+    color: var(--foreground-dark); /* Dark text for WCAG AA compliance */
     transform: scale(1.05);
     box-shadow: 0 0 10px var(--primary-glow);
 }
@@ -828,10 +831,11 @@ section {
     padding: var(--spacing-md);
     background: var(--card);
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(0, 255, 0, 0.2);
+    border: 2px solid rgba(115, 149, 174, 0.2);
     border-radius: var(--radius-lg);
     text-align: center;
     transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm);
 }
 
 .arch-layer:hover {
@@ -875,7 +879,7 @@ section {
 
 .arch-specialty {
     padding: var(--spacing-sm);
-    background: rgba(0, 255, 0, 0.1);
+    background: rgba(115, 149, 174, 0.1);
     border-radius: var(--radius-md);
     text-align: center;
     transition: all var(--transition-base);
@@ -883,13 +887,13 @@ section {
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-xs);
-    border: 1px solid rgba(0, 255, 0, 0.2);
+    border: 1px solid rgba(115, 149, 174, 0.2);
     color: var(--foreground);
 }
 
 .arch-specialty:hover {
     background: var(--primary);
-    color: var(--black);
+    color: var(--foreground-dark); /* Dark text for WCAG AA compliance */
     transform: translateY(-5px);
     box-shadow: 0 0 15px var(--primary-glow);
 }
@@ -911,7 +915,7 @@ section {
     border-radius: var(--radius-md);
     border-left: 4px solid var(--primary);
     transition: all var(--transition-base);
-    box-shadow: 0 0 5px rgba(0, 255, 0, 0.1);
+    box-shadow: 0 0 5px rgba(115, 149, 174, 0.1);
 }
 
 .arch-feature:hover {
@@ -929,7 +933,7 @@ section {
     justify-content: center;
     margin-bottom: var(--spacing-sm);
     font-size: 1.5rem;
-    color: var(--black);
+    color: var(--white);
     box-shadow: 0 0 10px var(--primary-glow);
 }
 
@@ -963,7 +967,8 @@ section {
     border-radius: var(--radius-lg);
     text-align: center;
     transition: all var(--transition-base);
-    border: 2px solid rgba(0, 255, 0, 0.2);
+    border: 2px solid rgba(115, 149, 174, 0.2);
+    box-shadow: var(--shadow-sm);
 }
 
 .recognition-item:hover {
@@ -982,7 +987,7 @@ section {
     justify-content: center;
     margin: 0 auto var(--spacing-sm);
     font-size: 2rem;
-    color: var(--black);
+    color: var(--white);
     transition: transform var(--transition-base);
     box-shadow: 0 0 20px var(--primary-glow);
 }
@@ -1038,7 +1043,7 @@ section {
     align-items: center;
     justify-content: center;
     font-size: 2rem;
-    color: var(--black);
+    color: var(--white);
     box-shadow: 0 0 15px var(--primary-glow);
 }
 
@@ -1069,7 +1074,7 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(0,255,0,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(115,149,174,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
     opacity: 0.3;
 }
 
@@ -1105,7 +1110,7 @@ section {
     background: var(--background-dark);
     color: var(--foreground);
     padding: var(--spacing-xl) 0 var(--spacing-md);
-    border-top: 1px solid rgba(0, 255, 0, 0.2);
+    border-top: 1px solid rgba(115, 149, 174, 0.2);
 }
 
 .footer-content {
@@ -1145,7 +1150,7 @@ section {
 .social-links a {
     width: 40px;
     height: 40px;
-    background: rgba(0, 255, 0, 0.1);
+    background: rgba(115, 149, 174, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1153,12 +1158,12 @@ section {
     color: var(--foreground);
     text-decoration: none;
     transition: all var(--transition-base);
-    border: 1px solid rgba(0, 255, 0, 0.2);
+    border: 1px solid rgba(115, 149, 174, 0.2);
 }
 
 .social-links a:hover {
     background: var(--primary);
-    color: var(--black);
+    color: var(--foreground-dark); /* Dark text for WCAG AA compliance */
     transform: translateY(-3px);
     box-shadow: 0 0 15px var(--primary-glow);
 }
@@ -1191,7 +1196,7 @@ section {
 .footer-bottom {
     text-align: center;
     padding-top: var(--spacing-md);
-    border-top: 1px solid rgba(0, 255, 0, 0.2);
+    border-top: 1px solid rgba(115, 149, 174, 0.2);
     color: var(--muted-foreground);
 }
 
@@ -1274,7 +1279,7 @@ section {
         flex-direction: column;
         padding: var(--spacing-md);
         box-shadow: 0 0 20px var(--primary-glow), var(--shadow-lg);
-        border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+        border-bottom: 1px solid rgba(115, 149, 174, 0.2);
         transform: translateY(-100%);
         opacity: 0;
         visibility: hidden;
@@ -1320,7 +1325,7 @@ section {
 .ripple {
     position: absolute;
     border-radius: 50%;
-    background: rgba(0, 255, 0, 0.4);
+    background: rgba(115, 149, 174, 0.4);
     transform: scale(0);
     animation: ripple-animation 0.6s ease-out;
     pointer-events: none;
@@ -1346,7 +1351,7 @@ section {
     opacity: 0;
     transform: translateY(-5px);
     transition: all var(--transition-fast);
-    border: 1px solid rgba(0, 255, 0, 0.3);
+    border: 1px solid rgba(115, 149, 174, 0.3);
     box-shadow: 0 0 10px var(--primary-glow);
 }
 
