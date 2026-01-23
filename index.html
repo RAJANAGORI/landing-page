@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nightingale v2.0 - Docker for Pentesters. A comprehensive penetration testing framework with web-based GUI, multi-terminal support, and 200+ pre-installed security tools.">
+    <title>Nightingale v2.0 - Docker for Pentesters | OWASP Project</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/Nightingale.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 20 L30 40 L50 60 L70 40 Z" fill="currentColor" opacity="0.8"/>
+                            <path d="M50 40 L35 55 L50 70 L65 55 Z" fill="currentColor" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Nightingale</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#tools">Tools</a>
+                    <a href="#architecture">Architecture</a>
+                    <a href="#recognition">Recognition</a>
+                    <a href="https://github.com/RAJANAGORI/Nightingale" target="_blank" class="btn-nav">GitHub</a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+            <div class="grid-pattern"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logo-container">
+                    <img src="assets/images/Nightingale.png" alt="Nightingale - Docker Image for Pentesters" class="hero-logo" />
+                </div>
+                <div class="version-badge">
+                    <span class="badge-text">Version 2.0</span>
+                    <span class="badge-pulse"></span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Nightingale</span>
+                    <span class="title-line highlight">Docker for Pentesters</span>
+                </h1>
+                <p class="hero-description">
+                    A comprehensive, platform-independent penetration testing framework with web-based GUI, 
+                    multi-terminal support, and 200+ pre-installed security tools. Everything you need for 
+                    web, network, mobile, OSINT, and forensics testing in one container.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://github.com/RAJANAGORI/Nightingale" target="_blank" class="btn btn-primary">
+                        <span>Get Started</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="https://github.com/RAJANAGORI/Nightingale/wiki" target="_blank" class="btn btn-secondary">
+                        <span>View Documentation</span>
+                        <i class="fas fa-book"></i>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="200">0</div>
+                        <div class="stat-label">Security Tools</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="6">0</div>
+                        <div class="stat-label">Tool Categories</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="5">0</div>
+                        <div class="stat-label">Languages Supported</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="100">0</div>
+                        <div class="stat-label">Platform Independent</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrow">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Core Features</span>
+                <h2 class="section-title">Everything You Need in One Place</h2>
+                <p class="section-description">
+                    Nightingale v2.0 brings a revolutionary web-based interface with powerful features 
+                    designed for modern penetration testing workflows.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-delay="0">
+                    <div class="feature-icon">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <h3 class="feature-title">Multi-Terminal Support</h3>
+                    <p class="feature-description">
+                        Manage multiple terminal sessions simultaneously with real-time synchronization. 
+                        Switch between sessions seamlessly and execute commands across different contexts.
+                    </p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="feature-title">Web-Based GUI</h3>
+                    <p class="feature-description">
+                        Access your entire penetration testing environment through a modern, intuitive 
+                        web interface. No local installations required - everything runs in your browser.
+                    </p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="feature-title">AI Command Suggestions</h3>
+                    <p class="feature-description">
+                        Get intelligent command recommendations based on your current context and output. 
+                        AI-powered suggestions help you discover new tools and techniques.
+                    </p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-folder-tree"></i>
+                    </div>
+                    <h3 class="feature-title">Real-Time File Explorer</h3>
+                    <p class="feature-description">
+                        Navigate your file system with an interactive, expandable directory tree. 
+                        Real-time updates keep you in sync with your terminal's current working directory.
+                    </p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="feature-title">VPN Management</h3>
+                    <p class="feature-description">
+                        Built-in VPN support for connecting to testing networks. Manage VPN connections 
+                        directly from the interface with split-tunneling capabilities.
+                    </p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-delay="500">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="feature-title">Scan Management</h3>
+                    <p class="feature-description">
+                        Organize and manage your vulnerability scans with a comprehensive dashboard. 
+                        Track scan progress, view results, and manage scan history efficiently.
+                    </p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-delay="600">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="feature-title">Fast Boot Time</h3>
+                    <p class="feature-description">
+                        Get started in seconds with Docker's lightweight virtualization. No need to 
+                        install multiple programming languages or configure complex environments.
+                    </p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-delay="700">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Platform Independent</h3>
+                    <p class="feature-description">
+                        Run on any platform that supports Docker - Windows, macOS, Linux, or cloud. 
+                        Your environment stays consistent regardless of the host operating system.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools" id="tools">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Tool Categories</span>
+                <h2 class="section-title">Comprehensive Security Toolkit</h2>
+                <p class="section-description">
+                    Nightingale includes specialized tools for every aspect of penetration testing, 
+                    organized into focused categories for maximum efficiency.
+                </p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-category" data-category="web">
+                    <div class="tool-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="tool-title">Web VAPT</h3>
+                    <p class="tool-description">
+                        Comprehensive web application security testing tools including XSS scanners, 
+                        SQL injection tools, and API testing frameworks.
+                    </p>
+                    <ul class="tool-list">
+                        <li>Xray</li>
+                        <li>XSStrike</li>
+                        <li>LinkFinder</li>
+                        <li>JWT Tool</li>
+                        <li>HawkScan</li>
+                    </ul>
+                </div>
+                <div class="tool-category" data-category="network">
+                    <div class="tool-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="tool-title">Network VAPT</h3>
+                    <p class="tool-description">
+                        Network reconnaissance and exploitation tools for identifying vulnerabilities 
+                        and testing network security.
+                    </p>
+                    <ul class="tool-list">
+                        <li>Nmap</li>
+                        <li>Metasploit</li>
+                        <li>Naabu</li>
+                        <li>RustScan</li>
+                        <li>Masscan</li>
+                    </ul>
+                </div>
+                <div class="tool-category" data-category="mobile">
+                    <div class="tool-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="tool-title">Mobile VAPT</h3>
+                    <p class="tool-description">
+                        Mobile application security testing tools for Android and iOS, including 
+                        reverse engineering and dynamic analysis frameworks.
+                    </p>
+                    <ul class="tool-list">
+                        <li>MobSF</li>
+                        <li>RMS</li>
+                        <li>JADX</li>
+                        <li>APKTool</li>
+                        <li>Frida</li>
+                    </ul>
+                </div>
+                <div class="tool-category" data-category="osint">
+                    <div class="tool-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="tool-title">OSINT</h3>
+                    <p class="tool-description">
+                        Open-source intelligence gathering tools for reconnaissance and information 
+                        collection from public sources.
+                    </p>
+                    <ul class="tool-list">
+                        <li>ReconSpider</li>
+                        <li>Recon-ng</li>
+                        <li>SpiderFoot</li>
+                        <li>MetaGoofil</li>
+                        <li>TheHarvester</li>
+                    </ul>
+                </div>
+                <div class="tool-category" data-category="forensics">
+                    <div class="tool-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3 class="tool-title">Forensics & Red Team</h3>
+                    <p class="tool-description">
+                        Digital forensics and red team tools for evidence analysis, steganography, 
+                        and advanced exploitation techniques.
+                    </p>
+                    <ul class="tool-list">
+                        <li>Impacket</li>
+                        <li>ExifTool</li>
+                        <li>Steghide</li>
+                        <li>Binwalk</li>
+                        <li>Foremost</li>
+                    </ul>
+                </div>
+                <div class="tool-category" data-category="wordlist">
+                    <div class="tool-icon">
+                        <i class="fas fa-list"></i>
+                    </div>
+                    <h3 class="tool-title">Wordlists</h3>
+                    <p class="tool-description">
+                        Comprehensive wordlist collections and fuzzing tools for password attacks, 
+                        directory brute-forcing, and content discovery.
+                    </p>
+                    <ul class="tool-list">
+                        <li>SecLists</li>
+                        <li>RockYou.txt</li>
+                        <li>FuzzDB</li>
+                        <li>WFuzz</li>
+                        <li>DirB</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="architecture" id="architecture">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Architecture</span>
+                <h2 class="section-title">Built on Modern Technology</h2>
+                <p class="section-description">
+                    Nightingale leverages Docker's modular architecture to provide a flexible, 
+                    scalable penetration testing environment.
+                </p>
+            </div>
+            <div class="architecture-content">
+                <div class="arch-visual">
+                    <div class="arch-diagram">
+                        <div class="arch-layer base">
+                            <div class="layer-icon">
+                                <i class="fab fa-docker"></i>
+                            </div>
+                            <div class="layer-label">Docker Base</div>
+                            <div class="layer-desc">Debian Foundation</div>
+                        </div>
+                        <div class="arch-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="arch-layer programming">
+                            <div class="layer-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="layer-label">Programming Languages</div>
+                            <div class="layer-desc">Python, Java, Ruby, Node.js, Go</div>
+                        </div>
+                        <div class="arch-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="arch-layers-grid">
+                            <div class="arch-specialty">
+                                <i class="fas fa-globe"></i>
+                                <span>Web</span>
+                            </div>
+                            <div class="arch-specialty">
+                                <i class="fas fa-network-wired"></i>
+                                <span>Network</span>
+                            </div>
+                            <div class="arch-specialty">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Mobile</span>
+                            </div>
+                            <div class="arch-specialty">
+                                <i class="fas fa-search"></i>
+                                <span>OSINT</span>
+                            </div>
+                            <div class="arch-specialty">
+                                <i class="fas fa-microscope"></i>
+                                <span>Forensics</span>
+                            </div>
+                            <div class="arch-specialty">
+                                <i class="fas fa-list"></i>
+                                <span>Wordlist</span>
+                            </div>
+                        </div>
+                        <div class="arch-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="arch-layer final">
+                            <div class="layer-icon">
+                                <i class="fas fa-feather-alt"></i>
+                            </div>
+                            <div class="layer-label">Nightingale v2.0</div>
+                            <div class="layer-desc">Complete Pentesting Framework</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="arch-features">
+                    <div class="arch-feature">
+                        <div class="arch-feature-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3>Modular Design</h3>
+                        <p>Build custom Docker images by combining specialized tool categories with a common programming language base.</p>
+                    </div>
+                    <div class="arch-feature">
+                        <div class="arch-feature-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3>Real-Time Sync</h3>
+                        <p>WebSocket-based communication ensures instant updates between terminal sessions and the file explorer.</p>
+                    </div>
+                    <div class="arch-feature">
+                        <div class="arch-feature-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Ready</h3>
+                        <p>Deploy on Kubernetes with Helm charts, or run locally with Docker Compose. Works everywhere Docker runs.</p>
+                    </div>
+                    <div class="arch-feature">
+                        <div class="arch-feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Isolated Environment</h3>
+                        <p>Each container runs in complete isolation, ensuring security and preventing conflicts with host systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recognition Section -->
+    <section class="recognition" id="recognition">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Recognition</span>
+                <h2 class="section-title">Trusted by Security Professionals Worldwide</h2>
+                <p class="section-description">
+                    Nightingale has been featured at major security conferences and recognized by 
+                    the cybersecurity community.
+                </p>
+            </div>
+            <div class="recognition-grid">
+                <div class="recognition-item">
+                    <div class="recognition-badge">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>BlackHat Arsenal</h3>
+                    <p>Asia 2022, 2023, 2024</p>
+                </div>
+                <div class="recognition-item">
+                    <div class="recognition-badge">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>BlackHat Arsenal</h3>
+                    <p>EU London 2025</p>
+                </div>
+                <div class="recognition-item">
+                    <div class="recognition-badge">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>BlackHat Arsenal</h3>
+                    <p>MEA 2022, 2023<br><span class="badge-note">(Shortlisted)</span></p>
+                </div>
+                <div class="recognition-item">
+                    <div class="recognition-badge">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>OWASP Global AppSec</h3>
+                    <p>EU 2022</p>
+                </div>
+                <div class="recognition-item">
+                    <div class="recognition-badge">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <h3>Docker Community</h3>
+                    <p>Hands-on Event</p>
+                </div>
+                <div class="recognition-item">
+                    <div class="recognition-badge">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>IWCON</h3>
+                    <p>2023</p>
+                </div>
+                <div class="recognition-item">
+                    <div class="recognition-badge">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h3>c0c0n</h3>
+                    <p>2024</p>
+                </div>
+            </div>
+            <div class="owasp-badge">
+                <div class="owasp-content">
+                    <div class="owasp-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="owasp-text">
+                        <h3>OWASP Incubator Project</h3>
+                        <p>Part of the Open Web Application Security Project</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Start Your Next Pentest?</h2>
+                <p class="cta-description">
+                    Join thousands of security professionals using Nightingale for their penetration testing needs.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://github.com/RAJANAGORI/Nightingale" target="_blank" class="btn btn-primary btn-large">
+                        <span>Get Started on GitHub</span>
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://github.com/RAJANAGORI/Nightingale/wiki" target="_blank" class="btn btn-secondary btn-large">
+                        <span>Read Documentation</span>
+                        <i class="fas fa-book-open"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M50 20 L30 40 L50 60 L70 40 Z" fill="currentColor" opacity="0.8"/>
+                                <path d="M50 40 L35 55 L50 70 L65 55 Z" fill="currentColor" opacity="0.6"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">Nightingale</span>
+                    </div>
+                    <p class="footer-description">
+                        Docker for Pentesters - A comprehensive penetration testing framework 
+                        with web-based GUI and 200+ security tools.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://github.com/RAJANAGORI/Nightingale" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/raja-nagori/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/RajaNagori7" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://medium.com/@rajanagori" target="_blank" aria-label="Medium">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/RAJANAGORI/Nightingale/wiki" target="_blank">Documentation</a></li>
+                        <li><a href="https://github.com/RAJANAGORI/Nightingale" target="_blank">GitHub Repository</a></li>
+                        <li><a href="https://artifacthub.io/packages/search?repo=nightingale" target="_blank">Artifact Hub</a></li>
+                        <li><a href="https://www.owasp.org/index.php/Category:OWASP_Project" target="_blank">OWASP Project</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#tools">Web VAPT</a></li>
+                        <li><a href="#tools">Network VAPT</a></li>
+                        <li><a href="#tools">Mobile VAPT</a></li>
+                        <li><a href="#tools">OSINT</a></li>
+                        <li><a href="#tools">Forensics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/RAJANAGORI/Nightingale/issues" target="_blank">Report Issues</a></li>
+                        <li><a href="https://github.com/RAJANAGORI/Nightingale/discussions" target="_blank">Discussions</a></li>
+                        <li><a href="https://github.com/sponsors/RAJANAGORI" target="_blank">Sponsor Project</a></li>
+                        <li><a href="https://github.com/RAJANAGORI/Nightingale/blob/main/SECURITY.md" target="_blank">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Nightingale. </p>
+                <p class="footer-credit">Built with ❤️ from 🇮🇳 by <a href="https://rajanagori.in" target="_blank">Raja Nagori</a> for the security community</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
