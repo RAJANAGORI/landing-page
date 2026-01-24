@@ -15,6 +15,7 @@
         initMobileMenu();
         initParallax();
         initTooltips();
+        initFAQ();
     });
 
     // Navbar scroll effect
@@ -281,10 +282,54 @@
         // Scroll-based animations can go here
     }, 16)); // ~60fps
 
+    // Copy to clipboard functionality
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function() {
+            // Show success feedback
+            const notification = document.createElement('div');
+            notification.className = 'copy-notification';
+            notification.textContent = 'Copied to clipboard!';
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 2000);
+        }).catch(function(err) {
+            console.error('Failed to copy: ', err);
+        });
+    }
+
+    // Make copyToClipboard available globally
+    window.copyToClipboard = copyToClipboard;
+
     // Add loading animation
     window.addEventListener('load', function() {
         document.body.classList.add('loaded');
     });
+
+    // FAQ accordion functionality
+    function initFAQ() {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+
+            question.addEventListener('click', function() {
+                // Close all other FAQ items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').classList.remove('show');
+                    }
+                });
+
+                // Toggle current FAQ item
+                item.classList.toggle('active');
+                answer.classList.toggle('show');
+            });
+        });
+    }
 
     // Console message for developers
     console.log('%c🦅 Nightingale v2.0', 'color: #7395AE; font-size: 20px; font-weight: bold;');
