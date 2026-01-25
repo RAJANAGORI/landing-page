@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
     <meta name="description" content="Nightingale v2.0 - Docker for Pentesters. A comprehensive penetration testing framework with web-based GUI, multi-terminal support, and 200+ pre-installed security tools.">
     <meta name="keywords" content="penetration testing, docker, security tools, web vulnerability assessment, network penetration testing, mobile security testing, OSINT framework, digital forensics, ethical hacking, cybersecurity tools, OWASP, kali linux alternative, pentest framework">
     <meta name="author" content="Raja Nagori">
@@ -35,39 +36,77 @@
     <meta property="twitter:creator" content="@RajaNagori7">
     <meta property="twitter:site" content="@RajaNagori7">
     
-    <!-- Fonts -->
+    <!-- Preconnect to external domains (critical for performance) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    
+    <!-- DNS prefetch for non-critical external resources -->
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/Nightingale.png">
 
-    <!-- Preload critical resources -->
+    <!-- Preload critical resources with fetchpriority -->
     <link rel="preload" href="assets/css/main.css" as="style">
+    <link rel="preload" href="assets/images/Nightingale.webp" as="image" fetchpriority="high" type="image/webp">
+    <link rel="preload" href="assets/images/Nightingale.png" as="image" fetchpriority="high">
     <link rel="preload" href="assets/js/main.js" as="script">
-    <link rel="preload" href="assets/images/Nightingale.png" as="image">
 
-    <!-- DNS prefetch for external resources -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <!-- Load fonts with font-display: swap for better performance -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Critical CSS - Inlined for above-the-fold content -->
+    <style>
+:root{--primary:#7395AE;--primary-dark:#5A7A91;--primary-light:#8FAEC4;--primary-glow:rgba(115,149,174,0.3);--background:#F0F4F8;--background-dark:#E1E8ED;--background-light:#FFFFFF;--accent:#A1D6E2;--accent-dark:#7FC4D4;--accent-light:#B8E0EA;--foreground:#2C3E50;--foreground-dark:#1A252F;--foreground-light:#5A6C7D;--secondary:#B8C5D1;--secondary-light:#D1DCE5;--card:#FFFFFF;--card-foreground:#2C3E50;--muted:#B8C5D1;--muted-foreground:#5A6C7D;--border:#D1DCE5;--text-primary:#2C3E50;--text-secondary:#5A6C7D;--text-light:#7A8A9A;--white:#FFFFFF;--black:#000000;--destructive:#E74C3C;--gradient-primary:linear-gradient(135deg,#7395AE 0%,#8FAEC4 100%);--gradient-hero:linear-gradient(135deg,#F0F4F8 0%,#E1E8ED 50%,#F0F4F8 100%);--gradient-card:linear-gradient(135deg,rgba(115,149,174,0.1) 0%,rgba(161,214,226,0.05) 100%);--shadow-sm:0 2px 4px rgba(44,62,80,0.05);--shadow-md:0 4px 6px rgba(44,62,80,0.1);--shadow-lg:0 10px 25px rgba(44,62,80,0.15);--shadow-xl:0 20px 40px rgba(44,62,80,0.2);--shadow-glow:0 0 30px rgba(115,149,174,0.3);--spacing-xs:0.5rem;--spacing-sm:1rem;--spacing-md:2rem;--spacing-lg:4rem;--spacing-xl:6rem;--font-primary:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--font-mono:'JetBrains Mono','Courier New',monospace;--transition-fast:0.2s ease;--transition-base:0.3s ease;--transition-slow:0.5s ease;--radius-sm:0.5rem;--radius-md:1rem;--radius-lg:1.5rem;--radius-xl:2rem}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;font-size:16px}body{font-family:var(--font-primary);background-color:var(--background);color:var(--foreground);line-height:1.6;overflow-x:hidden}.container{max-width:1200px;margin:0 auto;padding:0 var(--spacing-md)}.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(240,244,248,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(115,149,174,0.2);transition:all var(--transition-base)}.nav-content{display:flex;align-items:center;justify-content:space-between;padding:var(--spacing-sm) 0}.logo{display:flex;align-items:center;gap:var(--spacing-xs);font-weight:700;font-size:1.5rem;color:var(--primary);text-decoration:none}.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:var(--spacing-xl) 0 calc(var(--spacing-xl) + 80px);overflow:hidden;background:var(--gradient-hero)}.hero-content{position:relative;z-index:1;text-align:center;color:var(--foreground);max-width:900px}.hero-logo{max-width:280px;width:100%;height:auto;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges;filter:drop-shadow(0 0 20px rgba(115,149,174,0.3)) drop-shadow(0 0 40px rgba(161,214,226,0.2));will-change:transform}.hero-title{font-size:clamp(3rem,8vw,5.5rem);font-weight:900;line-height:1.1;margin-bottom:var(--spacing-md)}.hero-description{font-size:clamp(1rem,2vw,1.25rem);color:var(--muted-foreground);margin-bottom:var(--spacing-lg);line-height:1.8}
+    </style>
+    <!-- Non-critical CSS - Load asynchronously -->
+    <link rel="preload" href="assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/main.min.css"></noscript>
     
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Icons - Load Font Awesome asynchronously -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVC5L6FRDC"></script>
+    <!-- Google Analytics - Defer to improve page load -->
     <script>
+      // Defer Google Analytics loading
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-HVC5L6FRDC');
+      
+      // Load GA after page is interactive
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(function() {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-HVC5L6FRDC';
+          document.head.appendChild(script);
+          
+          script.onload = function() {
+            gtag('js', new Date());
+            gtag('config', 'G-HVC5L6FRDC', {
+              'send_page_view': false
+            });
+            // Send pageview after load
+            gtag('event', 'page_view', {
+              'send_to': 'G-HVC5L6FRDC'
+            });
+          };
+        });
+      } else {
+        // Fallback for browsers without requestIdleCallback
+        window.addEventListener('load', function() {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-HVC5L6FRDC';
+          document.head.appendChild(script);
+          
+          script.onload = function() {
+            gtag('js', new Date());
+            gtag('config', 'G-HVC5L6FRDC');
+          };
+        });
+      }
     </script>
 
     <!-- Structured Data -->
@@ -329,7 +368,10 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-logo-container">
-                    <img src="assets/images/Nightingale.png" alt="Nightingale v2.0 - Comprehensive Penetration Testing Framework with Docker Container" class="hero-logo" />
+                    <picture>
+                        <source type="image/webp" srcset="assets/images/Nightingale-400w.webp 400w, assets/images/Nightingale-800w.webp 800w, assets/images/Nightingale.webp 1464w" sizes="(max-width: 768px) 220px, (max-width: 1024px) 280px, 400px">
+                        <img src="assets/images/Nightingale.png" alt="Nightingale v2.0 - Comprehensive Penetration Testing Framework with Docker Container" class="hero-logo" width="400" height="278" fetchpriority="high" loading="eager" />
+                    </picture>
                 </div>
                 <div class="version-badge">
                     <span class="badge-text">Version 2.0</span>
@@ -1222,7 +1264,22 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="assets/js/main.js" defer></script>
+    <!-- Scripts - Defer non-critical JavaScript (minified) -->
+    <script src="assets/js/main.min.js" defer></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('Service Worker registered:', registration.scope);
+            })
+            .catch((error) => {
+              console.log('Service Worker registration failed:', error);
+            });
+        });
+      }
+    </script>
 </body>
 </html>

@@ -264,6 +264,8 @@ body {
     filter: blur(80px);
     opacity: 0.3;
     animation: float 20s ease-in-out infinite;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .orb-1 {
@@ -328,8 +330,11 @@ body {
     max-width: 280px;
     width: 100%;
     height: auto;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
     filter: drop-shadow(0 0 20px rgba(115, 149, 174, 0.3)) 
             drop-shadow(0 0 40px rgba(161, 214, 226, 0.2));
+    will-change: transform;
     animation: logoGlow 3s ease-in-out infinite;
     transition: transform var(--transition-base);
 }
@@ -579,6 +584,8 @@ body {
 section {
     padding: var(--spacing-xl) 0;
     position: relative;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
 }
 
 .section-header {
