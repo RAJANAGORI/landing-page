@@ -27,12 +27,32 @@ def minify_js(js_content):
     js_content = re.sub(r'//.*?(?=\n|$)', '', js_content)
     # Remove multi-line comments
     js_content = re.sub(r'/\*.*?\*/', '', js_content, flags=re.DOTALL)
+    
+    # Protect string literals to preserve spaces before negative numbers
+    string_placeholders = {}
+    placeholder_idx = 0
+    
+    def replace_string(match):
+        nonlocal placeholder_idx
+        placeholder = f'__STR{placeholder_idx}__'
+        string_placeholders[placeholder] = match.group(0)
+        placeholder_idx += 1
+        return placeholder
+    
+    # Protect all quoted strings
+    js_content = re.sub(r'["\'][^"\']*["\']', replace_string, js_content)
+    
     # Remove extra whitespace
     js_content = re.sub(r'\s+', ' ', js_content)
-    # Remove whitespace around operators (but be careful with strings)
+    # Remove whitespace around operators
     js_content = re.sub(r'\s*([{}();,=+\-*/])\s*', r'\1', js_content)
     # Remove leading/trailing whitespace
     js_content = js_content.strip()
+    
+    # Restore protected strings
+    for placeholder, original in string_placeholders.items():
+        js_content = js_content.replace(placeholder, original)
+    
     return js_content
 
 def extract_critical_css(css_content):

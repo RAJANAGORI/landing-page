@@ -70,52 +70,79 @@
     // Counter animation for stats
     function initCounterAnimation() {
         const counters = document.querySelectorAll('.stat-number');
+        if (counters.length === 0) {
+            console.warn('No counters found');
+            return;
+        }
+        
         const speed = 50; // Animation speed
 
         const animateCounter = (counter) => {
-            const target = parseInt(counter.getAttribute('data-target'));
-            const count = parseInt(counter.innerText);
-            const increment = target / speed;
+            const target = parseInt(counter.getAttribute('data-target')) || 0;
+            let count = parseInt(counter.innerText) || 0;
+            const increment = Math.max(1, target / speed);
             
             // Determine suffix based on label/content
             const statItem = counter.closest('.stat-item');
             const statLabel = statItem ? statItem.querySelector('.stat-label') : null;
-            const labelText = statLabel ? statLabel.textContent : '';
+            const labelText = statLabel ? statLabel.textContent.trim().toLowerCase() : '';
             
             let suffix = '+';
-            if (labelText.includes('%')) {
+            if (labelText.includes('platform independent') || target === 100) {
                 suffix = '%';
-            } else if (labelText.toLowerCase().includes('platform independent')) {
-                // Special case: 100% platform independent
-                suffix = '%';
-            } else if (target === 100) {
-                suffix = '+';
             }
 
             if (count < target) {
-                counter.innerText = Math.ceil(count + increment);
+                count = Math.min(Math.ceil(count + increment), target);
+                counter.innerText = count;
                 setTimeout(() => animateCounter(counter), 20);
             } else {
-                counter.innerText = `${target}${suffix}`;
+                counter.innerText = target + suffix;
             }
         };
 
-        const counterObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counter = entry.target;
-                    if (!counter.classList.contains('counted')) {
-                        counter.classList.add('counted');
-                        animateCounter(counter);
-                    }
-                    counterObserver.unobserve(counter);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        counters.forEach(counter => {
+        // Function to start animation for a counter
+        const startCounter = (counter) => {
+            if (counter.classList.contains('counted')) return;
+            counter.classList.add('counted');
             counter.innerText = '0';
-            counterObserver.observe(counter);
+            animateCounter(counter);
+        };
+
+        // Use IntersectionObserver with fallback
+        let observer;
+        try {
+            observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { 
+                threshold: 0.1,
+                rootMargin: '0px'
+            });
+        } catch (e) {
+            console.warn('IntersectionObserver not supported, using fallback');
+            observer = null;
+        }
+
+        // Initialize all counters - always start animation after delay
+        counters.forEach((counter, index) => {
+            counter.innerText = '0';
+            
+            // Always start animation after a delay (for above-the-fold content)
+            setTimeout(() => {
+                if (!counter.classList.contains('counted')) {
+                    startCounter(counter);
+                }
+            }, 800 + (index * 100)); // Stagger animations slightly
+            
+            // Also observe for scroll-into-view
+            if (observer) {
+                observer.observe(counter);
+            }
         });
     }
 
@@ -337,6 +364,6 @@
     // Console message for developers
     console.log('%c🦅 Nightingale v2.0', 'color: #7395AE; font-size: 20px; font-weight: bold;');
     console.log('%cDocker for Pentesters - Landing Page', 'color: #A1D6E2; font-size: 14px;');
-    console.log('%cBuilt with ❤️ for the security community', 'color: #7A8A9A; font-size: 12px;');
+    console.log('%cBuilt with ❤️ from 🇮🇳 by Raja Nagori for the security community', 'color: #7A8A9A; font-size: 12px;');
 
 })();
