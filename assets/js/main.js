@@ -6,6 +6,9 @@
 (function() {
     'use strict';
 
+    // Mark JS as enabled to avoid hiding content when JS fails to run.
+    document.documentElement.classList.add('js-enabled');
+
     // Initialize on DOM ready
     document.addEventListener('DOMContentLoaded', function() {
         initNavbar();

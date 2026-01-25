@@ -1438,15 +1438,21 @@ body:not(.loaded) .hero-content {
 }
 
 /* Scroll Animations */
-[data-aos] {
+.js-enabled [data-aos] {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease-out;
 }
 
-[data-aos].aos-animate {
+.js-enabled [data-aos].aos-animate {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Fallback: show content when JS is not available */
+:not(.js-enabled) [data-aos] {
+    opacity: 1;
+    transform: none;
 }
 
 /* Breadcrumb Navigation */

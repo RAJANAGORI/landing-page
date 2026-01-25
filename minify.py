@@ -5,6 +5,8 @@ Simple CSS and JS minifier for production builds
 import re
 import sys
 
+AUTHOR_BANNER = "/*! Authorship: Raja Nagori | Project: Nightingale Landing Page | https://nightingale-security.com/ */"
+
 def minify_css(css_content):
     """Minify CSS by removing comments and unnecessary whitespace"""
     # Remove comments
@@ -84,6 +86,10 @@ if __name__ == '__main__':
         else:
             print(f"Unknown type: {file_type}")
             sys.exit(1)
+
+        # Prepend an authorship banner to production assets (skip critical CSS).
+        if file_type in ('css', 'js'):
+            minified = f"{AUTHOR_BANNER}\n{minified}"
         
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write(minified)
