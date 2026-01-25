@@ -71,7 +71,8 @@
     function initCounterAnimation() {
         const counters = document.querySelectorAll('.stat-number');
         if (counters.length === 0) {
-            console.warn('No counters found');
+            // Retry after a short delay if counters not found yet
+            setTimeout(initCounterAnimation, 100);
             return;
         }
         
@@ -79,6 +80,8 @@
 
         const animateCounter = (counter) => {
             const target = parseInt(counter.getAttribute('data-target')) || 0;
+            if (target === 0) return; // Skip if no target
+            
             let count = parseInt(counter.innerText) || 0;
             const increment = Math.max(1, target / speed);
             
@@ -105,8 +108,12 @@
         const startCounter = (counter) => {
             if (counter.classList.contains('counted')) return;
             counter.classList.add('counted');
+            const target = parseInt(counter.getAttribute('data-target')) || 0;
+            if (target === 0) return;
+            
             counter.innerText = '0';
-            animateCounter(counter);
+            // Small delay to ensure DOM is ready
+            setTimeout(() => animateCounter(counter), 50);
         };
 
         // Use IntersectionObserver with fallback
@@ -130,14 +137,18 @@
 
         // Initialize all counters - always start animation after delay
         counters.forEach((counter, index) => {
-            counter.innerText = '0';
+            // Reset to 0 if not already counted
+            if (!counter.classList.contains('counted')) {
+                counter.innerText = '0';
+            }
             
             // Always start animation after a delay (for above-the-fold content)
+            // Use longer delay to ensure page is fully loaded on deployment
             setTimeout(() => {
                 if (!counter.classList.contains('counted')) {
                     startCounter(counter);
                 }
-            }, 800 + (index * 100)); // Stagger animations slightly
+            }, 1000 + (index * 150)); // Increased delay for deployment
             
             // Also observe for scroll-into-view
             if (observer) {
@@ -145,6 +156,53 @@
             }
         });
     }
+    
+    // Also initialize on window load as fallback
+    window.addEventListener('load', function() {
+        // Double-check counters are animated after full page load
+        setTimeout(() => {
+            const counters = document.querySelectorAll('.stat-number:not(.counted)');
+            if (counters.length > 0) {
+                counters.forEach((counter, index) => {
+                    setTimeout(() => {
+                        if (!counter.classList.contains('counted')) {
+                            const target = parseInt(counter.getAttribute('data-target')) || 0;
+                            if (target > 0) {
+                                counter.classList.add('counted');
+                                counter.innerText = '0';
+                                
+                                const speed = 50;
+                                const animateCounter = (counter) => {
+                                    const target = parseInt(counter.getAttribute('data-target')) || 0;
+                                    let count = parseInt(counter.innerText) || 0;
+                                    const increment = Math.max(1, target / speed);
+                                    
+                                    const statItem = counter.closest('.stat-item');
+                                    const statLabel = statItem ? statItem.querySelector('.stat-label') : null;
+                                    const labelText = statLabel ? statLabel.textContent.trim().toLowerCase() : '';
+                                    
+                                    let suffix = '+';
+                                    if (labelText.includes('platform independent') || target === 100) {
+                                        suffix = '%';
+                                    }
+
+                                    if (count < target) {
+                                        count = Math.min(Math.ceil(count + increment), target);
+                                        counter.innerText = count;
+                                        setTimeout(() => animateCounter(counter), 20);
+                                    } else {
+                                        counter.innerText = target + suffix;
+                                    }
+                                };
+                                
+                                setTimeout(() => animateCounter(counter), 50);
+                            }
+                        }
+                    }, index * 150);
+                });
+            }
+        }, 500);
+    });
 
     // Smooth scroll for anchor links
     function initSmoothScroll() {
