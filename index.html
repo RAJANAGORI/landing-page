@@ -54,11 +54,11 @@
     <link rel="preload" href="assets/js/main.min.js" as="script">
 
     <!-- Load fonts with font-display: swap for better performance -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Critical CSS - Inlined for above-the-fold content -->
     <style>
-:root{--primary:#7395AE;--primary-dark:#5A7A91;--primary-light:#8FAEC4;--primary-glow:rgba(115,149,174,0.3);--background:#F0F4F8;--background-dark:#E1E8ED;--background-light:#FFFFFF;--accent:#A1D6E2;--accent-dark:#7FC4D4;--accent-light:#B8E0EA;--foreground:#2C3E50;--foreground-dark:#1A252F;--foreground-light:#5A6C7D;--secondary:#B8C5D1;--secondary-light:#D1DCE5;--card:#FFFFFF;--card-foreground:#2C3E50;--muted:#B8C5D1;--muted-foreground:#5A6C7D;--border:#D1DCE5;--text-primary:#2C3E50;--text-secondary:#5A6C7D;--text-light:#7A8A9A;--white:#FFFFFF;--black:#000000;--destructive:#E74C3C;--gradient-primary:linear-gradient(135deg,#7395AE 0%,#8FAEC4 100%);--gradient-hero:linear-gradient(135deg,#F0F4F8 0%,#E1E8ED 50%,#F0F4F8 100%);--gradient-card:linear-gradient(135deg,rgba(115,149,174,0.1) 0%,rgba(161,214,226,0.05) 100%);--shadow-sm:0 2px 4px rgba(44,62,80,0.05);--shadow-md:0 4px 6px rgba(44,62,80,0.1);--shadow-lg:0 10px 25px rgba(44,62,80,0.15);--shadow-xl:0 20px 40px rgba(44,62,80,0.2);--shadow-glow:0 0 30px rgba(115,149,174,0.3);--spacing-xs:0.5rem;--spacing-sm:1rem;--spacing-md:2rem;--spacing-lg:4rem;--spacing-xl:6rem;--font-primary:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--font-mono:'JetBrains Mono','Courier New',monospace;--transition-fast:0.2s ease;--transition-base:0.3s ease;--transition-slow:0.5s ease;--radius-sm:0.5rem;--radius-md:1rem;--radius-lg:1.5rem;--radius-xl:2rem}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;font-size:16px}body{font-family:var(--font-primary);background-color:var(--background);color:var(--foreground);line-height:1.6;overflow-x:hidden}.container{max-width:1200px;margin:0 auto;padding:0 var(--spacing-md)}.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(240,244,248,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(115,149,174,0.2);transition:all var(--transition-base)}.nav-content{display:flex;align-items:center;justify-content:space-between;padding:var(--spacing-sm) 0}.logo{display:flex;align-items:center;gap:var(--spacing-xs);font-weight:700;font-size:1.5rem;color:var(--primary);text-decoration:none}.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:var(--spacing-xl) 0 calc(var(--spacing-xl) + 80px);overflow:hidden;background:var(--gradient-hero)}.hero-content{position:relative;z-index:1;text-align:center;color:var(--foreground);max-width:900px}.hero-logo{max-width:280px;width:100%;height:auto;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges;filter:drop-shadow(0 0 20px rgba(115,149,174,0.3)) drop-shadow(0 0 40px rgba(161,214,226,0.2));will-change:transform}.hero-title{font-size:clamp(3rem,8vw,5.5rem);font-weight:900;line-height:1.1;margin-bottom:var(--spacing-md)}.hero-description{font-size:clamp(1rem,2vw,1.25rem);color:var(--muted-foreground);margin-bottom:var(--spacing-lg);line-height:1.8}
+:root{--primary:#5EEAD4;--primary-dark:#2DD4BF;--primary-muted:rgba(94,234,212,0.15);--background:#050508;--background-elevated:#0c0e14;--foreground:#F4F4F5;--foreground-muted:#A1A1AA;--border:rgba(255,255,255,0.08);--spacing-xs:0.5rem;--spacing-sm:1rem;--spacing-md:2rem;--spacing-lg:4rem;--spacing-xl:6rem;--font-primary:'Instrument Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--font-mono:'JetBrains Mono',monospace;--transition-base:0.3s ease;--radius-md:0.75rem}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;font-size:16px}body{font-family:var(--font-primary);background-color:var(--background);color:var(--foreground);line-height:1.6;overflow-x:hidden}.container{max-width:1200px;margin:0 auto;padding:0 var(--spacing-md)}.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(5,5,8,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:all var(--transition-base)}.nav-content{display:flex;align-items:center;justify-content:space-between;padding:var(--spacing-sm) 0}.logo{display:flex;align-items:center;gap:var(--spacing-xs);font-weight:700;font-size:1.25rem;color:var(--foreground);text-decoration:none}.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:calc(5rem + var(--spacing-md)) 0 var(--spacing-xl);overflow:hidden;background:radial-gradient(ellipse 80% 50% at 50% -20%,rgba(94,234,212,0.12),transparent 55%),var(--background)}.hero-inner{position:relative;z-index:1;display:grid;gap:var(--spacing-lg);align-items:center}@media(min-width:900px){.hero-inner{grid-template-columns:1.1fr 0.9fr}}.hero-copy{max-width:640px}.hero-title{font-size:clamp(2.5rem,6vw,3.75rem);font-weight:700;line-height:1.08;letter-spacing:-0.02em;margin-bottom:var(--spacing-md);color:var(--foreground)}.hero-description{font-size:clamp(1rem,1.5vw,1.125rem);color:var(--foreground-muted);margin-bottom:var(--spacing-lg);line-height:1.75}.hero-visual img{max-width:100%;height:auto;border-radius:var(--radius-md);border:1px solid var(--border);box-shadow:0 24px 80px rgba(0,0,0,0.45)}.hero-cta{display:flex;flex-wrap:wrap;gap:var(--spacing-sm);margin-bottom:var(--spacing-lg)}.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.875rem 1.5rem;border-radius:var(--radius-md);font-weight:600;text-decoration:none;font-size:1rem}.btn-primary{background:var(--primary);color:#042F2E}.btn-secondary{background:transparent;color:var(--foreground);border:1px solid var(--border)}
     </style>
     <!-- Non-critical CSS - Load asynchronously -->
     <link rel="preload" href="assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -221,35 +221,41 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Features",
-              "item": "https://nightingale-security.com/#features"
+              "item": "https://nightingale-security.com/#lifecycle"
             },
             {
               "@type": "ListItem",
               "position": 3,
+              "name": "Product",
+              "item": "https://nightingale-security.com/#product"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
               "name": "Tools",
               "item": "https://nightingale-security.com/#tools"
             },
             {
               "@type": "ListItem",
-              "position": 4,
+              "position": 5,
               "name": "Architecture",
               "item": "https://nightingale-security.com/#architecture"
             },
             {
               "@type": "ListItem",
-              "position": 5,
+              "position": 6,
               "name": "Recognition",
               "item": "https://nightingale-security.com/#recognition"
             },
             {
               "@type": "ListItem",
-              "position": 6,
+              "position": 7,
               "name": "Getting Started",
               "item": "https://nightingale-security.com/#getting-started"
             },
             {
               "@type": "ListItem",
-              "position": 7,
+              "position": 8,
               "name": "FAQ",
               "item": "https://nightingale-security.com/#faq"
             }
@@ -313,17 +319,18 @@
     <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-content">
-                <div class="logo">
+                <a href="#hero" class="logo">
                     <div class="logo-icon">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M50 20 L30 40 L50 60 L70 40 Z" fill="currentColor" opacity="0.8"/>
                             <path d="M50 40 L35 55 L50 70 L65 55 Z" fill="currentColor" opacity="0.6"/>
                         </svg>
                     </div>
                     <span class="logo-text">Nightingale</span>
-                </div>
+                </a>
                 <div class="nav-links">
-                    <a href="#features">Features</a>
+                    <a href="#lifecycle">Features</a>
+                    <a href="#product">Product</a>
                     <a href="#tools">Tools</a>
                     <a href="#architecture">Architecture</a>
                     <a href="#recognition">Recognition</a>
@@ -340,61 +347,37 @@
         </div>
     </nav>
 
-    <!-- Breadcrumb Navigation -->
-    <nav aria-label="breadcrumb" class="breadcrumb-nav">
-        <div class="container">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a href="https://rajanagori.github.io/" aria-label="Home">Home</a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a href="https://github.com/RAJANAGORI" aria-label="GitHub Profile">GitHub</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                    Nightingale v2.0
-                </li>
-            </ol>
-        </div>
-    </nav>
-
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="hero-background">
+        <div class="hero-background" aria-hidden="true">
             <div class="gradient-orb orb-1"></div>
             <div class="gradient-orb orb-2"></div>
             <div class="gradient-orb orb-3"></div>
             <div class="grid-pattern"></div>
+            <div class="hero-noise"></div>
         </div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-logo-container">
-                    <picture>
-                        <source type="image/webp" srcset="assets/images/Nightingale-400w.webp 400w, assets/images/Nightingale-800w.webp 800w, assets/images/Nightingale.webp 1464w" sizes="(max-width: 768px) 220px, (max-width: 1024px) 280px, 400px">
-                        <img src="assets/images/Nightingale.png" alt="Nightingale v2.0 - Comprehensive Penetration Testing Framework with Docker Container" class="hero-logo" width="400" height="278" fetchpriority="high" loading="eager" />
-                    </picture>
-                </div>
+        <div class="container hero-inner">
+            <div class="hero-copy">
                 <div class="version-badge">
-                    <span class="badge-text">Version 2.0</span>
+                    <span class="badge-text">Version 2.0 · OWASP Project</span>
                     <span class="badge-pulse"></span>
                 </div>
                 <h1 class="hero-title">
-                    <span class="title-line">Nightingale</span>
-                    <span class="title-line highlight">Docker for Pentesters</span>
+                    Security testing at <span class="hero-title-accent">engineering speed</span>
                 </h1>
                 <p class="hero-description">
-                    Nightingale v2.0 is a comprehensive penetration testing framework built on Docker, featuring
-                    a modern web-based GUI, multi-terminal support, and 200+ pre-installed security tools.
-                    Perfect for web application vulnerability assessment, network penetration testing, mobile
-                    security testing, OSINT reconnaissance, and digital forensics - all in one containerized environment.
+                    Nightingale is a Docker-based penetration testing framework with a modern web GUI,
+                    multi-terminal support, and 200+ pre-installed tools—covering web, network, mobile,
+                    OSINT, and forensics in one consistent environment.
                 </p>
                 <div class="hero-cta">
-                    <a href="https://github.com/RAJANAGORI/Nightingale" target="_blank" class="btn btn-primary">
+                    <a href="https://github.com/RAJANAGORI/Nightingale" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                         <span>Get Started</span>
-                        <i class="fas fa-arrow-right"></i>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </a>
-                    <a href="https://github.com/RAJANAGORI/Nightingale/wiki" target="_blank" class="btn btn-secondary">
-                        <span>View Documentation</span>
-                        <i class="fas fa-book"></i>
+                    <a href="https://github.com/RAJANAGORI/Nightingale/wiki" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                        <span>Documentation</span>
+                        <i class="fas fa-book" aria-hidden="true"></i>
                     </a>
                 </div>
                 <div class="hero-stats">
@@ -416,8 +399,16 @@
                     </div>
                 </div>
             </div>
+            <div class="hero-visual">
+                <div class="hero-frame">
+                    <picture>
+                        <source type="image/webp" srcset="assets/images/Nightingale-400w.webp 400w, assets/images/Nightingale-800w.webp 800w, assets/images/Nightingale.webp 1464w" sizes="(max-width: 768px) 100vw, 420px">
+                        <img src="assets/images/Nightingale.png" alt="Nightingale v2.0 - Comprehensive Penetration Testing Framework with Docker Container" class="hero-logo" width="400" height="278" fetchpriority="high" loading="eager" />
+                    </picture>
+                </div>
+            </div>
         </div>
-        <div class="scroll-indicator">
+        <div class="scroll-indicator" aria-hidden="true">
             <div class="mouse">
                 <div class="wheel"></div>
             </div>
@@ -429,103 +420,324 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
+    <!-- Trusted strip -->
+    <section class="trusted" id="trusted" aria-labelledby="trusted-heading">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Core Features</span>
-                <h2 class="section-title">Everything You Need in One Place</h2>
+            <h2 id="trusted-heading" class="visually-hidden">Community and industry recognition</h2>
+            <p class="trusted-label">Trusted in the community</p>
+            <div class="trusted-logos" role="list">
+                <span class="trusted-chip" role="listitem">OWASP Incubator Project</span>
+                <span class="trusted-chip" role="listitem">BlackHat Arsenal</span>
+                <span class="trusted-chip" role="listitem">Docker Community</span>
+                <span class="trusted-chip" role="listitem">OWASP Global AppSec</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem / insight -->
+    <section class="insights" id="insights">
+        <div class="container">
+            <div class="section-header section-header--left">
+                <span class="section-tag">Why Nightingale</span>
+                <h2 class="section-title">Ship tests faster. Keep the lab consistent.</h2>
                 <p class="section-description">
-                    Nightingale v2.0 delivers a cutting-edge penetration testing framework with an intuitive
-                    web-based GUI, enabling security professionals to perform comprehensive vulnerability
-                    assessments across web applications, networks, mobile devices, and digital forensics.
+                    Toolchains sprawl across hosts, environments drift, and onboarding new testers takes days.
+                    Nightingale keeps your workflow in one container and one browser session.
                 </p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card" data-aos="fade-up" data-delay="0">
-                    <div class="feature-icon">
-                        <i class="fas fa-terminal"></i>
-                    </div>
-                    <h3 class="feature-title">Multi-Terminal Support</h3>
-                    <p class="feature-description">
-                        Manage multiple terminal sessions simultaneously with real-time synchronization. 
-                        Switch between sessions seamlessly and execute commands across different contexts.
-                    </p>
+            <div class="insights-grid">
+                <article class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-layer-group" aria-hidden="true"></i></div>
+                    <h3 class="insight-title">One environment</h3>
+                    <p class="insight-text">200+ tools across 6 categories with no local dependency hell—pull, run, and test.</p>
+                </article>
+                <article class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-bolt" aria-hidden="true"></i></div>
+                    <h3 class="insight-title">Faster iteration</h3>
+                    <p class="insight-text">Web GUI, multi-terminal sync, and AI-assisted commands reduce friction in the critical path.</p>
+                </article>
+                <article class="insight-card">
+                    <div class="insight-icon"><i class="fas fa-globe" aria-hidden="true"></i></div>
+                    <h3 class="insight-title">Same results everywhere</h3>
+                    <p class="insight-text">Docker isolation means Windows, macOS, Linux, or cloud—same stack, reproducible outcomes.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lifecycle / feature tabs -->
+    <section class="lifecycle" id="lifecycle">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Core workflow</span>
+                <h2 class="section-title">Everything you need in one place</h2>
+                <p class="section-description">
+                    Nightingale v2.0 delivers a cutting-edge penetration testing framework with an intuitive
+                    web-based GUI, from parallel terminals to scan orchestration.
+                </p>
+            </div>
+            <div class="lifecycle-shell">
+                <div class="lifecycle-tabs" role="tablist" aria-label="Feature highlights">
+                    <button type="button" class="lifecycle-tab is-active" role="tab" id="lifecycle-tab-0" aria-selected="true" aria-controls="lifecycle-panel-0" tabindex="0">Multi-terminal</button>
+                    <button type="button" class="lifecycle-tab" role="tab" id="lifecycle-tab-1" aria-selected="false" aria-controls="lifecycle-panel-1" tabindex="-1">Web GUI</button>
+                    <button type="button" class="lifecycle-tab" role="tab" id="lifecycle-tab-2" aria-selected="false" aria-controls="lifecycle-panel-2" tabindex="-1">AI suggestions</button>
+                    <button type="button" class="lifecycle-tab" role="tab" id="lifecycle-tab-3" aria-selected="false" aria-controls="lifecycle-panel-3" tabindex="-1">File explorer</button>
+                    <button type="button" class="lifecycle-tab" role="tab" id="lifecycle-tab-4" aria-selected="false" aria-controls="lifecycle-panel-4" tabindex="-1">VPN</button>
+                    <button type="button" class="lifecycle-tab" role="tab" id="lifecycle-tab-5" aria-selected="false" aria-controls="lifecycle-panel-5" tabindex="-1">Scan management</button>
                 </div>
-                <div class="feature-card" data-aos="fade-up" data-delay="100">
-                    <div class="feature-icon">
-                        <i class="fas fa-code"></i>
+                <div class="lifecycle-panels">
+                    <div class="lifecycle-panel is-active" role="tabpanel" id="lifecycle-panel-0" aria-labelledby="lifecycle-tab-0">
+                        <h3 class="lifecycle-panel-title">Multi-terminal support</h3>
+                        <p class="lifecycle-panel-lead">Manage multiple terminal sessions simultaneously with real-time synchronization.</p>
+                        <ul class="lifecycle-list">
+                            <li>Switch between sessions seamlessly and execute commands across different contexts.</li>
+                            <li>Keep context aligned with the web UI and file explorer.</li>
+                        </ul>
+                        <p class="lifecycle-outcome"><strong>Outcome:</strong> Parallel workflows without juggling brittle SSH multiplexing.</p>
                     </div>
-                    <h3 class="feature-title">Web-Based GUI</h3>
-                    <p class="feature-description">
-                        Access your entire penetration testing environment through a modern, intuitive 
-                        web interface. No local installations required - everything runs in your browser.
-                    </p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-delay="200">
-                    <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
+                    <div class="lifecycle-panel" role="tabpanel" id="lifecycle-panel-1" aria-labelledby="lifecycle-tab-1" hidden>
+                        <h3 class="lifecycle-panel-title">Web-based GUI</h3>
+                        <p class="lifecycle-panel-lead">Access your entire penetration testing environment through a modern, intuitive web interface.</p>
+                        <ul class="lifecycle-list">
+                            <li>No local installations required—everything runs in your browser.</li>
+                            <li>Designed for teams that need shared visibility into sessions.</li>
+                        </ul>
+                        <p class="lifecycle-outcome"><strong>Outcome:</strong> Onboard testers in minutes, not days.</p>
                     </div>
-                    <h3 class="feature-title">AI Command Suggestions</h3>
-                    <p class="feature-description">
-                        Get intelligent command recommendations based on your current context and output. 
-                        AI-powered suggestions help you discover new tools and techniques.
-                    </p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-delay="300">
-                    <div class="feature-icon">
-                        <i class="fas fa-folder-tree"></i>
+                    <div class="lifecycle-panel" role="tabpanel" id="lifecycle-panel-2" aria-labelledby="lifecycle-tab-2" hidden>
+                        <h3 class="lifecycle-panel-title">AI command suggestions</h3>
+                        <p class="lifecycle-panel-lead">Get intelligent command recommendations based on your current context and output.</p>
+                        <ul class="lifecycle-list">
+                            <li>Discover adjacent tools and techniques without leaving the terminal.</li>
+                            <li>Reduce repetitive command lookup during long engagements.</li>
+                        </ul>
+                        <p class="lifecycle-outcome"><strong>Outcome:</strong> Faster iteration on hypotheses during active testing.</p>
                     </div>
-                    <h3 class="feature-title">Real-Time File Explorer</h3>
-                    <p class="feature-description">
-                        Navigate your file system with an interactive, expandable directory tree. 
-                        Real-time updates keep you in sync with your terminal's current working directory.
-                    </p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-delay="400">
-                    <div class="feature-icon">
-                        <i class="fas fa-network-wired"></i>
+                    <div class="lifecycle-panel" role="tabpanel" id="lifecycle-panel-3" aria-labelledby="lifecycle-tab-3" hidden>
+                        <h3 class="lifecycle-panel-title">Real-time file explorer</h3>
+                        <p class="lifecycle-panel-lead">Navigate your file system with an interactive, expandable directory tree.</p>
+                        <ul class="lifecycle-list">
+                            <li>Real-time updates synced with your terminal’s working directory.</li>
+                            <li>Less context switching between shell and file managers.</li>
+                        </ul>
+                        <p class="lifecycle-outcome"><strong>Outcome:</strong> Clearer situational awareness during investigations.</p>
                     </div>
-                    <h3 class="feature-title">VPN Management</h3>
-                    <p class="feature-description">
-                        Built-in VPN support for connecting to testing networks. Manage VPN connections 
-                        directly from the interface with split-tunneling capabilities.
-                    </p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-delay="500">
-                    <div class="feature-icon">
-                        <i class="fas fa-search"></i>
+                    <div class="lifecycle-panel" role="tabpanel" id="lifecycle-panel-4" aria-labelledby="lifecycle-tab-4" hidden>
+                        <h3 class="lifecycle-panel-title">VPN management</h3>
+                        <p class="lifecycle-panel-lead">Built-in VPN support for connecting to testing networks.</p>
+                        <ul class="lifecycle-list">
+                            <li>Manage VPN connections directly from the interface.</li>
+                            <li>Split-tunneling capabilities for controlled routing.</li>
+                        </ul>
+                        <p class="lifecycle-outcome"><strong>Outcome:</strong> Safer, repeatable access to segmented environments.</p>
                     </div>
-                    <h3 class="feature-title">Scan Management</h3>
-                    <p class="feature-description">
-                        Organize and manage your vulnerability scans with a comprehensive dashboard. 
-                        Track scan progress, view results, and manage scan history efficiently.
-                    </p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-delay="600">
-                    <div class="feature-icon">
-                        <i class="fas fa-rocket"></i>
+                    <div class="lifecycle-panel" role="tabpanel" id="lifecycle-panel-5" aria-labelledby="lifecycle-tab-5" hidden>
+                        <h3 class="lifecycle-panel-title">Scan management</h3>
+                        <p class="lifecycle-panel-lead">Organize and manage vulnerability scans with a comprehensive dashboard.</p>
+                        <ul class="lifecycle-list">
+                            <li>Track scan progress, view results, and manage scan history efficiently.</li>
+                            <li>Keep engagement artifacts organized in one place.</li>
+                        </ul>
+                        <p class="lifecycle-outcome"><strong>Outcome:</strong> Reporting-ready traceability without spreadsheet chaos.</p>
                     </div>
-                    <h3 class="feature-title">Fast Boot Time</h3>
-                    <p class="feature-description">
-                        Get started in seconds with Docker's lightweight virtualization. No need to 
-                        install multiple programming languages or configure complex environments.
-                    </p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-delay="700">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="feature-title">Platform Independent</h3>
-                    <p class="feature-description">
-                        Run on any platform that supports Docker - Windows, macOS, Linux, or cloud. 
-                        Your environment stays consistent regardless of the host operating system.
-                    </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Capabilities grid -->
+    <section class="capabilities" id="capabilities">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">How it works</span>
+                <h2 class="section-title">Better focus. Faster outcomes.</h2>
+                <p class="section-description">
+                    Nightingale is built for real engagements: isolation, speed, and a UI that stays out of your way.
+                </p>
+            </div>
+            <div class="capabilities-grid">
+                <article class="cap-card">
+                    <div class="cap-icon"><i class="fas fa-server" aria-hidden="true"></i></div>
+                    <h3 class="cap-title">Isolated execution</h3>
+                    <p class="cap-text">Runs in Docker with a clear boundary from the host—consistent tooling without polluting workstations.</p>
+                </article>
+                <article class="cap-card">
+                    <div class="cap-icon"><i class="fas fa-window-maximize" aria-hidden="true"></i></div>
+                    <h3 class="cap-title">Browser-first operations</h3>
+                    <p class="cap-text">Terminal, explorer, and scan views in one place so teams can collaborate without screen-sharing friction.</p>
+                </article>
+                <article class="cap-card">
+                    <div class="cap-icon"><i class="fas fa-memory" aria-hidden="true"></i></div>
+                    <h3 class="cap-title">Persistent session context</h3>
+                    <p class="cap-text">Multi-terminal sync and file explorer keep state aligned so you spend less time re-establishing context.</p>
+                </article>
+                <article class="cap-card">
+                    <div class="cap-icon"><i class="fas fa-book-open" aria-hidden="true"></i></div>
+                    <h3 class="cap-title">Research-backed toolkit</h3>
+                    <p class="cap-text">Curated categories across web, network, mobile, OSINT, forensics, and wordlists—ready for professional use.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust / safety -->
+    <section class="trust-safety" id="trust">
+        <div class="container trust-inner">
+            <div class="trust-copy">
+                <span class="section-tag">Built for real labs</span>
+                <h2 class="section-title">Isolation and governance you can audit</h2>
+                <p class="section-description">
+                    Nightingale keeps testing work inside the container: fewer host-side changes, clearer
+                    boundaries for shared machines, and an OWASP-aligned open model you can inspect on GitHub.
+                </p>
+                <ul class="trust-list">
+                    <li><i class="fas fa-check" aria-hidden="true"></i> Container boundary reduces host drift and side effects.</li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i> Transparent, community-driven development under OWASP.</li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i> Pull from GHCR or build from source—your choice.</li>
+                </ul>
+            </div>
+            <div class="trust-card">
+                <div class="trust-card-icon"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
+                <p class="trust-card-text">Use dedicated credentials and networks for engagements. Nightingale helps you keep work scoped, reproducible, and reviewable.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community / OSS -->
+    <section class="community" id="community">
+        <div class="container community-inner">
+            <div class="community-copy">
+                <h2 class="section-title">Open source velocity</h2>
+                <p class="section-description">Free to use, fork, and improve—backed by the OWASP community and GitHub workflows.</p>
+                <a href="https://github.com/RAJANAGORI/Nightingale" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <span>View on GitHub</span>
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="community-stats">
+                <div class="community-stat">
+                    <span class="community-stat-value">200+</span>
+                    <span class="community-stat-label">Tools</span>
+                </div>
+                <div class="community-stat">
+                    <span class="community-stat-value">6</span>
+                    <span class="community-stat-label">Categories</span>
+                </div>
+                <div class="community-stat">
+                    <span class="community-stat-value">OWASP</span>
+                    <span class="community-stat-label">Incubator</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stack -->
+    <section class="stack" id="stack">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Stack</span>
+                <h2 class="section-title">Fits into your stack on day one</h2>
+                <p class="section-description">
+                    Run wherever Docker runs—local, CI, or cloud. Pull from GitHub Container Registry and wire into your existing workflows.
+                </p>
+            </div>
+            <div class="stack-chips">
+                <span class="stack-chip"><i class="fab fa-docker" aria-hidden="true"></i> Docker</span>
+                <span class="stack-chip"><i class="fab fa-github" aria-hidden="true"></i> GitHub</span>
+                <span class="stack-chip"><i class="fab fa-linux" aria-hidden="true"></i> Debian base</span>
+                <span class="stack-chip"><i class="fas fa-layer-group" aria-hidden="true"></i> GHCR</span>
+                <span class="stack-chip"><i class="fas fa-cube" aria-hidden="true"></i> Container-first</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product screenshots: tabbed showcase + scans carousel -->
+    <section class="product-showcase" id="product" aria-labelledby="product-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Interface</span>
+                <h2 class="section-title" id="product-heading">See Nightingale in action</h2>
+                <p class="section-description">
+                    One browser session: shell and file tree, an embedded VS Code workspace, guided security scans,
+                    and a frictionless path into the console.
+                </p>
+            </div>
+            <div class="showcase-shell">
+                <div class="showcase-tabs" role="tablist" aria-label="Product views">
+                    <button type="button" class="showcase-tab is-active" role="tab" id="showcase-tab-0" aria-selected="true" aria-controls="showcase-panel-0">Access</button>
+                    <button type="button" class="showcase-tab" role="tab" id="showcase-tab-1" aria-selected="false" aria-controls="showcase-panel-1" tabindex="-1">Nightingale Console</button>
+                    <button type="button" class="showcase-tab" role="tab" id="showcase-tab-2" aria-selected="false" aria-controls="showcase-panel-2" tabindex="-1">VS Code workspace</button>
+                    <button type="button" class="showcase-tab" role="tab" id="showcase-tab-3" aria-selected="false" aria-controls="showcase-panel-3" tabindex="-1">Security scans</button>
+                </div>
+                <div class="showcase-panels">
+                    <div class="showcase-panel is-active" role="tabpanel" id="showcase-panel-0" aria-labelledby="showcase-tab-0">
+                        <figure class="showcase-frame">
+                            <img src="assets/images/product/sign-in.png" alt="Sign in to Nightingale with Access Console button" width="2800" height="1458" loading="eager" fetchpriority="high" decoding="async" />
+                            <figcaption class="showcase-caption">One-click entry to the console—no account required for local deployments.</figcaption>
+                        </figure>
+                    </div>
+                    <div class="showcase-panel" role="tabpanel" id="showcase-panel-1" aria-labelledby="showcase-tab-1" hidden>
+                        <figure class="showcase-frame">
+                            <img src="assets/images/product/console-shell.png" alt="Nightingale Console showing shell and file explorer side by side" width="2804" height="1452" loading="lazy" decoding="async" />
+                            <figcaption class="showcase-caption">Terminal, file explorer, and session tabs in one layout—no tab-hopping across tools.</figcaption>
+                        </figure>
+                    </div>
+                    <div class="showcase-panel" role="tabpanel" id="showcase-panel-2" aria-labelledby="showcase-tab-2" hidden>
+                        <figure class="showcase-frame">
+                            <img src="assets/images/product/vscode-editor.png" alt="Embedded VS Code with editor, terminal, and AI chat" width="2792" height="1460" loading="lazy" decoding="async" />
+                            <figcaption class="showcase-caption">Open folders, edit code, and run commands in the same environment as your pentest tools.</figcaption>
+                        </figure>
+                    </div>
+                    <div class="showcase-panel" role="tabpanel" id="showcase-panel-3" aria-labelledby="showcase-tab-3" hidden>
+                        <div class="scans-carousel" id="scans-carousel" aria-roledescription="carousel" aria-label="Security scans screenshots">
+                            <div class="carousel-viewport">
+                                <ol class="carousel-slides">
+                                    <li class="carousel-slide is-active" data-slide="0" aria-hidden="false">
+                                        <figure class="showcase-frame showcase-frame--flush">
+                                            <img src="assets/images/product/scans-submit.png" alt="Submit security scan form with target and tool fields" width="2798" height="1454" loading="lazy" decoding="async" />
+                                            <figcaption class="showcase-caption">Queue scans with a clear tool and target workflow.</figcaption>
+                                        </figure>
+                                    </li>
+                                    <li class="carousel-slide" data-slide="1" aria-hidden="true" hidden>
+                                        <figure class="showcase-frame showcase-frame--flush">
+                                            <img src="assets/images/product/scans-submit-tool.png" alt="Security tool dropdown with Nuclei and other scanners" width="2802" height="1456" loading="lazy" decoding="async" />
+                                            <figcaption class="showcase-caption">Pick from integrated scanners (Nuclei, Nmap, Nikto, and more).</figcaption>
+                                        </figure>
+                                    </li>
+                                    <li class="carousel-slide" data-slide="2" aria-hidden="true" hidden>
+                                        <figure class="showcase-frame showcase-frame--flush">
+                                            <img src="assets/images/product/scans-job-dashboard.png" alt="Scan jobs dashboard with findings and reports panels" width="2802" height="1454" loading="lazy" decoding="async" />
+                                            <figcaption class="showcase-caption">Track jobs, findings, and reports from one dashboard.</figcaption>
+                                        </figure>
+                                    </li>
+                                    <li class="carousel-slide" data-slide="3" aria-hidden="true" hidden>
+                                        <figure class="showcase-frame showcase-frame--flush">
+                                            <img src="assets/images/product/scans-playbooks.png" alt="Playbooks view with steps and run playbook action" width="2800" height="1456" loading="lazy" decoding="async" />
+                                            <figcaption class="showcase-caption">Run repeatable playbooks with visible steps and outputs.</figcaption>
+                                        </figure>
+                                    </li>
+                                </ol>
+                            </div>
+                            <div class="carousel-toolbar">
+                                <button type="button" class="carousel-btn carousel-prev" aria-controls="scans-carousel" aria-label="Previous screenshot">
+                                    <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                                </button>
+                                <div class="carousel-dots" aria-label="Scan screenshots">
+                                    <button type="button" class="carousel-dot is-active" aria-label="Slide 1 of 4" data-index="0"></button>
+                                    <button type="button" class="carousel-dot" aria-label="Slide 2 of 4" data-index="1"></button>
+                                    <button type="button" class="carousel-dot" aria-label="Slide 3 of 4" data-index="2"></button>
+                                    <button type="button" class="carousel-dot" aria-label="Slide 4 of 4" data-index="3"></button>
+                                </div>
+                                <button type="button" class="carousel-btn carousel-next" aria-controls="scans-carousel" aria-label="Next screenshot">
+                                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Tools Section -->
     <section class="tools" id="tools">

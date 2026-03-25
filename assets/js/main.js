@@ -19,6 +19,9 @@
         initParallax();
         initTooltips();
         initFAQ();
+        initLifecycleTabs();
+        initProductShowcase();
+        initScansCarousel();
     });
 
     // Navbar scroll effect
@@ -216,7 +219,7 @@
                 const target = document.querySelector(href);
                 if (target) {
                     e.preventDefault();
-                    const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                    const offsetTop = target.offsetTop - 72; // Account for fixed navbar
                     
                     window.scrollTo({
                         top: offsetTop,
@@ -395,6 +398,185 @@
         document.body.classList.add('loaded');
     });
 
+    // Lifecycle feature tabs (keyboard + ARIA)
+    function initLifecycleTabs() {
+        const tablist = document.querySelector('.lifecycle-tabs');
+        if (!tablist) return;
+
+        const tabs = Array.from(tablist.querySelectorAll('.lifecycle-tab'));
+        const panels = tabs.map(function (_, i) {
+            return document.getElementById('lifecycle-panel-' + i);
+        }).filter(Boolean);
+
+        if (tabs.length === 0 || panels.length === 0) return;
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function selectTab(index) {
+            if (index < 0 || index >= tabs.length) return;
+
+            tabs.forEach(function (tab, i) {
+                var active = i === index;
+                tab.classList.toggle('is-active', active);
+                tab.setAttribute('aria-selected', active ? 'true' : 'false');
+                tab.tabIndex = active ? 0 : -1;
+
+                if (panels[i]) {
+                    if (active) {
+                        panels[i].removeAttribute('hidden');
+                        panels[i].classList.add('is-active');
+                    } else {
+                        panels[i].setAttribute('hidden', '');
+                        panels[i].classList.remove('is-active');
+                    }
+                }
+            });
+        }
+
+        tabs.forEach(function (tab, index) {
+            tab.addEventListener('click', function () {
+                selectTab(index);
+            });
+        });
+
+        tablist.addEventListener('keydown', function (e) {
+            var current = tabs.indexOf(document.activeElement);
+            if (current === -1) return;
+
+            var next = current;
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                next = (current + 1) % tabs.length;
+                e.preventDefault();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                next = (current - 1 + tabs.length) % tabs.length;
+                e.preventDefault();
+            } else if (e.key === 'Home') {
+                next = 0;
+                e.preventDefault();
+            } else if (e.key === 'End') {
+                next = tabs.length - 1;
+                e.preventDefault();
+            }
+
+            if (next !== current) {
+                selectTab(next);
+                tabs[next].focus();
+            }
+        });
+
+        if (reduceMotion) {
+            document.querySelectorAll('.lifecycle-panel').forEach(function (el) {
+                el.style.animation = 'none';
+            });
+        }
+    }
+
+    // Product showcase tabs (Console / VS Code / Scans / Access)
+    function initProductShowcase() {
+        const tablist = document.querySelector('.showcase-tabs');
+        if (!tablist) return;
+
+        const tabs = Array.from(tablist.querySelectorAll('.showcase-tab'));
+        const panels = tabs.map(function (_, i) {
+            return document.getElementById('showcase-panel-' + i);
+        }).filter(Boolean);
+
+        if (tabs.length === 0 || panels.length === 0) return;
+
+        function selectTab(index) {
+            if (index < 0 || index >= tabs.length) return;
+
+            tabs.forEach(function (tab, i) {
+                var active = i === index;
+                tab.classList.toggle('is-active', active);
+                tab.setAttribute('aria-selected', active ? 'true' : 'false');
+                tab.tabIndex = active ? 0 : -1;
+
+                if (panels[i]) {
+                    if (active) {
+                        panels[i].removeAttribute('hidden');
+                        panels[i].classList.add('is-active');
+                    } else {
+                        panels[i].setAttribute('hidden', '');
+                        panels[i].classList.remove('is-active');
+                    }
+                }
+            });
+        }
+
+        tabs.forEach(function (tab, index) {
+            tab.addEventListener('click', function () {
+                selectTab(index);
+            });
+        });
+
+        tablist.addEventListener('keydown', function (e) {
+            var current = tabs.indexOf(document.activeElement);
+            if (current === -1) return;
+
+            var next = current;
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                next = (current + 1) % tabs.length;
+                e.preventDefault();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                next = (current - 1 + tabs.length) % tabs.length;
+                e.preventDefault();
+            } else if (e.key === 'Home') {
+                next = 0;
+                e.preventDefault();
+            } else if (e.key === 'End') {
+                next = tabs.length - 1;
+                e.preventDefault();
+            }
+
+            if (next !== current) {
+                selectTab(next);
+                tabs[next].focus();
+            }
+        });
+    }
+
+    // Security scans screenshot carousel (inside Product tab)
+    function initScansCarousel() {
+        const root = document.getElementById('scans-carousel');
+        if (!root) return;
+
+        const slides = Array.from(root.querySelectorAll('.carousel-slide'));
+        const dots = Array.from(root.querySelectorAll('.carousel-dot'));
+        const prevBtn = root.querySelector('.carousel-prev');
+        const nextBtn = root.querySelector('.carousel-next');
+        if (slides.length === 0) return;
+
+        var idx = 0;
+
+        function go(n) {
+            idx = (n + slides.length) % slides.length;
+            slides.forEach(function (slide, i) {
+                var on = i === idx;
+                slide.classList.toggle('is-active', on);
+                if (on) {
+                    slide.removeAttribute('hidden');
+                    slide.setAttribute('aria-hidden', 'false');
+                } else {
+                    slide.setAttribute('hidden', '');
+                    slide.setAttribute('aria-hidden', 'true');
+                }
+            });
+            dots.forEach(function (dot, i) {
+                dot.classList.toggle('is-active', i === idx);
+            });
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', function () { go(idx - 1); });
+        if (nextBtn) nextBtn.addEventListener('click', function () { go(idx + 1); });
+
+        dots.forEach(function (dot, i) {
+            dot.addEventListener('click', function () { go(i); });
+        });
+
+        go(0);
+    }
+
     // FAQ accordion functionality
     function initFAQ() {
         const faqItems = document.querySelectorAll('.faq-item');
@@ -420,8 +602,8 @@
     }
 
     // Console message for developers
-    console.log('%c🦅 Nightingale v2.0', 'color: #7395AE; font-size: 20px; font-weight: bold;');
-    console.log('%cDocker for Pentesters - Landing Page', 'color: #A1D6E2; font-size: 14px;');
+    console.log('%c🦅 Nightingale v2.0', 'color: #5eead4; font-size: 20px; font-weight: bold;');
+    console.log('%cDocker for Pentesters - Landing Page', 'color: #a1a1aa; font-size: 14px;');
     console.log('%cBuilt with ❤️ from 🇮🇳 by Raja Nagori for the security community', 'color: #7A8A9A; font-size: 12px;');
 
 })();

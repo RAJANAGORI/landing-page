@@ -12,12 +12,20 @@
         <priority>1.0</priority>
     </url>
 
-    <!-- Features section -->
+    <!-- Features / lifecycle section -->
     <url>
-        <loc>https://nightingale-security.com/#features</loc>
-        <lastmod>2026-01-24</lastmod>
+        <loc>https://nightingale-security.com/#lifecycle</loc>
+        <lastmod>2026-03-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+    </url>
+
+    <!-- Product / UI showcase -->
+    <url>
+        <loc>https://nightingale-security.com/#product</loc>
+        <lastmod>2026-03-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
     </url>
 
     <!-- Tools section -->
