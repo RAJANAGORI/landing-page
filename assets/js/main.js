@@ -11,6 +11,7 @@
 
     // Initialize on DOM ready
     document.addEventListener('DOMContentLoaded', function() {
+        initAnnouncementBarHeight();
         initNavbar();
         initScrollAnimations();
         initCounterAnimation();
@@ -23,6 +24,42 @@
         initProductShowcase();
         initScansCarousel();
     });
+
+    // Keep --announcement-bar-height in sync with the real bar height (wrapping, safe-area, fonts)
+    function initAnnouncementBarHeight() {
+        const bar = document.querySelector('.announcement-bar');
+        if (!bar) return;
+
+        function sync() {
+            const h = Math.ceil(bar.getBoundingClientRect().height);
+            if (h > 0) {
+                document.documentElement.style.setProperty('--announcement-bar-height', h + 'px');
+            }
+        }
+
+        sync();
+        requestAnimationFrame(function() {
+            sync();
+            requestAnimationFrame(sync);
+        });
+
+        if (typeof ResizeObserver !== 'undefined') {
+            var ro = new ResizeObserver(function() {
+                sync();
+            });
+            ro.observe(bar);
+        } else {
+            window.addEventListener('resize', sync);
+        }
+
+        window.addEventListener('orientationchange', function() {
+            setTimeout(sync, 150);
+        });
+
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(sync);
+        }
+    }
 
     // Navbar scroll effect
     function initNavbar() {
