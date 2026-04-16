@@ -63,6 +63,7 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: calc(var(--announcement-bar-height) + 4.75rem);
     font-size: 16px;
+    background-color: var(--background);
 }
 
 body {
@@ -103,8 +104,11 @@ body {
     padding-left: env(safe-area-inset-left, 0);
     padding-right: env(safe-area-inset-right, 0);
     overflow: hidden;
+    isolation: isolate;
+    /* Solid base stops light “slivers” / notch edge artifacts under the sheen */
+    background-color: #061917;
     border-bottom: 1px solid rgba(94, 234, 212, 0.38);
-    background: linear-gradient(110deg, #042f2e 0%, #0d4a44 35%, #0a1a24 70%, #06302c 100%);
+    background-image: linear-gradient(110deg, #042f2e 0%, #0d4a44 35%, #0a1a24 70%, #06302c 100%);
     background-size: 200% 100%;
     box-shadow: 0 4px 28px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
     animation: announcement-bg-shift 10s ease-in-out infinite;
@@ -186,9 +190,10 @@ body {
 }
 
 .announcement-sep {
-    margin: 0 0.35rem;
+    margin: 0 0.15rem;
     color: var(--foreground-subtle);
     font-weight: 600;
+    white-space: pre;
 }
 
 .announcement-sub {
@@ -267,9 +272,9 @@ body {
         align-items: center;
         align-content: center;
         justify-content: center;
-        row-gap: 0.55rem;
+        row-gap: 0.75rem;
         column-gap: 0.65rem;
-        padding: 0.5rem 1rem;
+        padding: 0.55rem 1rem 0.6rem;
         max-width: min(22rem, 100%);
         margin-left: auto;
         margin-right: auto;
@@ -288,6 +293,7 @@ body {
         height: 5px;
     }
 
+    /* Keep separator so it never reads “soonBe”; pill already says LIVE SOON so hide redundant lead */
     .announcement-sep {
         display: none;
     }
@@ -311,7 +317,8 @@ body {
         font-size: 0.8125rem;
         line-height: 1.45;
         text-align: center;
-        padding: 0 0.25rem;
+        padding: 0.15rem 0.25rem 0;
+        margin: 0;
     }
 
     .announcement-sub {
@@ -319,7 +326,9 @@ body {
     }
 
     .announcement-sub::before {
-        content: none;
+        content: " — ";
+        font-weight: 600;
+        color: var(--foreground-subtle);
     }
 
     .announcement-cta {
@@ -2347,7 +2356,8 @@ body:not(.loaded) .hero-inner {
     }
     .announcement-bar {
         animation: none;
-        background: linear-gradient(110deg, #042f2e 0%, #0d4a44 50%, #0a1a24 100%);
+        background-color: #061917;
+        background-image: linear-gradient(110deg, #042f2e 0%, #0d4a44 50%, #0a1a24 100%);
     }
     .announcement-bar::before {
         animation: none;
