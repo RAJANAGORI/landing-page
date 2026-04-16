@@ -62,6 +62,26 @@
     <style>
 :root{--primary:#5EEAD4;--primary-dark:#2DD4BF;--primary-muted:rgba(94,234,212,0.15);--background:#050508;--background-elevated:#0c0e14;--foreground:#F4F4F5;--foreground-muted:#A1A1AA;--border:rgba(255,255,255,0.08);--spacing-xs:0.5rem;--spacing-sm:1rem;--spacing-md:2rem;--spacing-lg:4rem;--spacing-xl:6rem;--font-primary:'Instrument Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--font-mono:'JetBrains Mono',monospace;--transition-base:0.3s ease;--radius-md:0.75rem}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;font-size:16px}body{font-family:var(--font-primary);background-color:var(--background);color:var(--foreground);line-height:1.6;overflow-x:hidden}.container{max-width:1200px;margin:0 auto;padding:0 var(--spacing-md)}.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(5,5,8,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:all var(--transition-base)}.nav-content{display:flex;align-items:center;justify-content:space-between;padding:var(--spacing-sm) 0}.logo{display:flex;align-items:center;gap:var(--spacing-xs);font-weight:700;font-size:1.25rem;color:var(--foreground);text-decoration:none}.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:calc(5rem + var(--spacing-md)) 0 var(--spacing-xl);overflow:hidden;background:radial-gradient(ellipse 80% 50% at 50% -20%,rgba(94,234,212,0.12),transparent 55%),var(--background)}.hero-inner{position:relative;z-index:1;display:grid;gap:var(--spacing-lg);align-items:center}@media(min-width:900px){.hero-inner{grid-template-columns:1.1fr 0.9fr}}.hero-copy{max-width:640px}.hero-title{font-size:clamp(2.5rem,6vw,3.75rem);font-weight:700;line-height:1.08;letter-spacing:-0.02em;margin-bottom:var(--spacing-md);color:var(--foreground)}.hero-description{font-size:clamp(1rem,1.5vw,1.125rem);color:var(--foreground-muted);margin-bottom:var(--spacing-lg);line-height:1.75}.hero-visual img{max-width:100%;height:auto;border-radius:var(--radius-md);border:1px solid var(--border);box-shadow:0 24px 80px rgba(0,0,0,0.45)}.hero-cta{display:flex;flex-wrap:wrap;gap:var(--spacing-sm);margin-bottom:var(--spacing-lg)}.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.875rem 1.5rem;border-radius:var(--radius-md);font-weight:600;text-decoration:none;font-size:1rem}.btn-primary{background:var(--primary);color:#042F2E}.btn-secondary{background:transparent;color:var(--foreground);border:1px solid var(--border)}
     </style>
+    <!-- Announcement bar: critical layout (matches main.css) -->
+    <style>
+        :root { --announcement-bar-height: 3rem; }
+        @media (max-width: 640px) { :root { --announcement-bar-height: 3.5rem; } }
+        .announcement-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            min-height: var(--announcement-bar-height);
+            border-bottom: 1px solid rgba(94, 234, 212, 0.35);
+            background: linear-gradient(105deg, #042f2e 0%, #0d3d3a 40%, #0a1628 100%);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+        }
+        .navbar { top: var(--announcement-bar-height); }
+        .hero {
+            padding-top: calc(var(--announcement-bar-height) + 5rem + var(--spacing-md));
+        }
+    </style>
     <!-- Non-critical CSS - Load asynchronously -->
     <link rel="preload" href="assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="assets/css/main.min.css"></noscript>
@@ -323,6 +343,25 @@
     </script>
 </head>
 <body>
+    <div class="announcement-bar" role="region" aria-label="Product launch announcement">
+        <div class="container announcement-bar-inner">
+            <span class="announcement-pill">
+                <span class="announcement-pill-dot" aria-hidden="true"></span>
+                <i class="fas fa-bolt" aria-hidden="true"></i>
+                Live soon
+            </span>
+            <p class="announcement-text">
+                <span class="announcement-lead">We're going live soon</span>
+                <span class="announcement-sep" aria-hidden="true">·</span>
+                <span class="announcement-sub">Be among the first to test <strong>Nightingale</strong> in action.</span>
+            </p>
+            <a href="#product" class="announcement-cta">
+                <span>See the console</span>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container">

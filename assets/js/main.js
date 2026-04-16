@@ -219,7 +219,11 @@
                 const target = document.querySelector(href);
                 if (target) {
                     e.preventDefault();
-                    const offsetTop = target.offsetTop - 72; // Account for fixed navbar
+                    const bar = document.querySelector('.announcement-bar');
+                    const nav = document.getElementById('navbar');
+                    const barH = bar ? bar.getBoundingClientRect().height : 0;
+                    const navH = nav ? nav.getBoundingClientRect().height : 72;
+                    const offsetTop = target.offsetTop - barH - navH;
                     
                     window.scrollTo({
                         top: offsetTop,
