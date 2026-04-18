@@ -154,14 +154,26 @@ body {
 .announcement-bar-inner {
     position: relative;
     z-index: 1;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    box-sizing: border-box;
+    /* Full viewport width (not .container); gutters match nav / page content */
+    padding: 0.55rem var(--spacing-md);
+    /* Pill + CTA fixed; middle grows so copy is centered in the gap (equal slack L/R of text) */
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: clamp(0.75rem, 2vw, 1.25rem);
-    flex-wrap: wrap;
-    padding: 0.55rem var(--spacing-md);
+    gap: clamp(0.65rem, 1.75vw, 1rem);
     /* Do not set min-height to --announcement-bar-height: JS measures the outer bar
        including this block — that feedback loop blew up mobile height. */
+}
+
+.announcement-bar-mid {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .announcement-pill {
@@ -201,6 +213,7 @@ body {
     line-height: 1.45;
     color: rgba(244, 244, 245, 0.95);
     max-width: min(42rem, 100%);
+    width: fit-content;
 }
 
 .announcement-lead {
@@ -298,6 +311,11 @@ body {
         max-width: min(22rem, 100%);
         margin-left: auto;
         margin-right: auto;
+    }
+
+    /* Flatten mid wrapper so pill / text / CTA participate in the flex layout (order, wrap) */
+    .announcement-bar-mid {
+        display: contents;
     }
 
     .announcement-pill {
@@ -546,6 +564,10 @@ body {
     .hero-inner {
         grid-template-columns: 1.05fr 0.95fr;
     }
+
+    .hero-stats {
+        grid-column: 1 / -1;
+    }
 }
 
 .hero-copy {
@@ -608,7 +630,6 @@ body {
     display: flex;
     gap: var(--spacing-sm);
     flex-wrap: wrap;
-    margin-bottom: var(--spacing-lg);
 }
 
 .btn {
@@ -654,9 +675,15 @@ body {
 }
 
 .hero-stats {
+    width: 100%;
+    min-width: 0;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--spacing-sm);
+}
+
+.hero-stats .stat-item {
+    text-align: center;
 }
 
 @media (min-width: 480px) {
