@@ -74,6 +74,26 @@ body {
     overflow-x: hidden;
 }
 
+/* Skip link: visible on keyboard focus (WCAG), helps crawlers see main landmark */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    z-index: 10002;
+    padding: 0.65rem 1rem;
+    background: var(--primary);
+    color: #042f2e;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 0 0 var(--radius-sm) 0;
+}
+
+.skip-link:focus {
+    left: 0;
+    top: 0;
+    outline: 2px solid var(--foreground);
+    outline-offset: 2px;
+}
+
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -1027,6 +1047,32 @@ section {
     font-size: 0.9375rem;
     color: var(--foreground-muted);
     line-height: 1.65;
+}
+
+/* Road ahead / advanced capabilities (extends capabilities grid) */
+.road-ahead {
+    background: linear-gradient(180deg, var(--background) 0%, rgba(12, 14, 20, 0.85) 40%, var(--background) 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.road-ahead .section-description {
+    max-width: 46rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.road-ahead-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.road-ahead-card {
+    border-color: rgba(94, 234, 212, 0.1);
+    background: linear-gradient(165deg, rgba(17, 19, 24, 0.95), rgba(12, 14, 20, 0.98));
+}
+
+.road-ahead-card:hover {
+    border-color: rgba(94, 234, 212, 0.22);
 }
 
 /* Trust */

@@ -4,68 +4,12 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-    <!-- Main landing page -->
+    <!-- Single canonical document; section anchors are discoverable from the page -->
     <url>
         <loc>https://nightingale-security.com/</loc>
-        <lastmod>2026-01-24</lastmod>
+        <lastmod>2026-04-16</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
-    </url>
-
-    <!-- Features / lifecycle section -->
-    <url>
-        <loc>https://nightingale-security.com/#lifecycle</loc>
-        <lastmod>2026-03-25</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Product / UI showcase -->
-    <url>
-        <loc>https://nightingale-security.com/#product</loc>
-        <lastmod>2026-03-26</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.85</priority>
-    </url>
-
-    <!-- Tools section -->
-    <url>
-        <loc>https://nightingale-security.com/#tools</loc>
-        <lastmod>2026-01-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Architecture section -->
-    <url>
-        <loc>https://nightingale-security.com/#architecture</loc>
-        <lastmod>2026-01-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Recognition section -->
-    <url>
-        <loc>https://nightingale-security.com/#recognition</loc>
-        <lastmod>2026-01-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <!-- Getting started section -->
-    <url>
-        <loc>https://nightingale-security.com/#getting-started</loc>
-        <lastmod>2026-01-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <!-- FAQ section -->
-    <url>
-        <loc>https://nightingale-security.com/#faq</loc>
-        <lastmod>2026-01-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
     </url>
 
 </urlset>
