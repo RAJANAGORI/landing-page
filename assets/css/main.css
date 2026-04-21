@@ -2126,6 +2126,41 @@ section {
     background: var(--primary-muted);
 }
 
+/* Mid-page hosting attribution (DigitalOcean Open Source) */
+.sponsor-attribution {
+    padding: var(--spacing-lg) 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--background-elevated);
+}
+
+.sponsor-attribution-inner {
+    text-align: center;
+}
+
+.sponsor-attribution-label {
+    font-size: 0.8rem;
+    color: var(--foreground-subtle);
+    margin-bottom: 0.75rem;
+}
+
+.sponsor-attribution-link {
+    display: inline-block;
+    line-height: 0;
+    border-radius: var(--radius-sm);
+    transition: opacity var(--transition-fast);
+}
+
+.sponsor-attribution-link:hover {
+    opacity: 0.9;
+}
+
+.sponsor-attribution img {
+    width: min(201px, 100%);
+    height: auto;
+    vertical-align: middle;
+}
+
 .footer-title {
     font-size: 0.85rem;
     font-weight: 700;
