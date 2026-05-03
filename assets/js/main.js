@@ -22,7 +22,8 @@
         initFAQ();
         initLifecycleTabs();
         initProductShowcase();
-        initScansCarousel();
+        initScansCarousels();
+        initProductImageLightbox();
     });
 
     // Keep --announcement-bar-height in sync with the real bar height (wrapping, safe-area, fonts)
@@ -577,45 +578,148 @@
         });
     }
 
-    // Security scans screenshot carousel (inside Product tab)
-    function initScansCarousel() {
-        const root = document.getElementById('scans-carousel');
-        if (!root) return;
+    // Click / keyboard to open full-resolution screenshots (product section only)
+    function initProductImageLightbox() {
+        var root = document.querySelector('.product-showcase');
+        var lb = document.getElementById('product-image-lightbox');
+        if (!root || !lb) return;
 
-        const slides = Array.from(root.querySelectorAll('.carousel-slide'));
-        const dots = Array.from(root.querySelectorAll('.carousel-dot'));
-        const prevBtn = root.querySelector('.carousel-prev');
-        const nextBtn = root.querySelector('.carousel-next');
-        if (slides.length === 0) return;
+        var fullImg = lb.querySelector('.image-lightbox__img');
+        var fitToggle = lb.querySelector('.image-lightbox__fit-toggle');
+        var scrollEl = lb.querySelector('.image-lightbox__scroll');
+        var closeEls = lb.querySelectorAll('[data-lightbox-close]');
+        var lastFocus = null;
 
-        var idx = 0;
+        function setFitMode(actualSize) {
+            lb.classList.toggle('is-actual-size', actualSize);
+            if (fitToggle) {
+                fitToggle.setAttribute('aria-pressed', actualSize ? 'true' : 'false');
+                fitToggle.textContent = actualSize ? 'Fit screen' : 'Actual size';
+                fitToggle.setAttribute(
+                    'aria-label',
+                    actualSize
+                        ? 'Fit image to screen'
+                        : 'Show image at full pixel size (scroll or pinch to move)'
+                );
+            }
+            if (scrollEl && !actualSize) {
+                scrollEl.scrollLeft = 0;
+                scrollEl.scrollTop = 0;
+            }
+        }
 
-        function go(n) {
-            idx = (n + slides.length) % slides.length;
-            slides.forEach(function (slide, i) {
-                var on = i === idx;
-                slide.classList.toggle('is-active', on);
-                if (on) {
-                    slide.removeAttribute('hidden');
-                    slide.setAttribute('aria-hidden', 'false');
-                } else {
-                    slide.setAttribute('hidden', '');
-                    slide.setAttribute('aria-hidden', 'true');
-                }
-            });
-            dots.forEach(function (dot, i) {
-                dot.classList.toggle('is-active', i === idx);
+        function onDocKey(e) {
+            if (e.key === 'Escape') {
+                close();
+            }
+        }
+
+        function open(src, alt) {
+            if (!src) return;
+            lastFocus = document.activeElement;
+            setFitMode(false);
+            fullImg.src = src;
+            fullImg.alt = alt || '';
+            lb.removeAttribute('hidden');
+            document.body.style.overflow = 'hidden';
+            document.addEventListener('keydown', onDocKey);
+            window.setTimeout(function () {
+                var btn = lb.querySelector('.image-lightbox__close');
+                if (btn) btn.focus();
+            }, 0);
+        }
+
+        function close() {
+            lb.setAttribute('hidden', '');
+            setFitMode(false);
+            fullImg.removeAttribute('src');
+            fullImg.alt = '';
+            document.body.style.overflow = '';
+            document.removeEventListener('keydown', onDocKey);
+            if (lastFocus && typeof lastFocus.focus === 'function') {
+                lastFocus.focus();
+            }
+            lastFocus = null;
+        }
+
+        if (fitToggle) {
+            fitToggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                setFitMode(!lb.classList.contains('is-actual-size'));
             });
         }
 
-        if (prevBtn) prevBtn.addEventListener('click', function () { go(idx - 1); });
-        if (nextBtn) nextBtn.addEventListener('click', function () { go(idx + 1); });
-
-        dots.forEach(function (dot, i) {
-            dot.addEventListener('click', function () { go(i); });
+        root.querySelectorAll('img').forEach(function (img) {
+            img.tabIndex = 0;
+            img.setAttribute('role', 'button');
+            var base = img.getAttribute('alt') || 'Product screenshot';
+            img.setAttribute('aria-label', base + ' — activate to open full screen preview');
         });
 
-        go(0);
+        root.addEventListener('click', function (e) {
+            var t = e.target;
+            if (!t || t.tagName !== 'IMG') return;
+            e.preventDefault();
+            open(t.currentSrc || t.src, t.alt);
+        });
+
+        root.addEventListener('keydown', function (e) {
+            if (e.key !== 'Enter' && e.key !== ' ') return;
+            var t = e.target;
+            if (!t || t.tagName !== 'IMG') return;
+            e.preventDefault();
+            open(t.currentSrc || t.src, t.alt);
+        });
+
+        closeEls.forEach(function (el) {
+            el.addEventListener('click', function (e) {
+                e.preventDefault();
+                close();
+            });
+        });
+    }
+
+    // Product screenshot carousels (scans workflow, VPN / admin, etc.)
+    function initScansCarousels() {
+        document.querySelectorAll('.scans-carousel').forEach(function (root) {
+            const slides = Array.from(root.querySelectorAll('.carousel-slide'));
+            const dots = Array.from(root.querySelectorAll('.carousel-dot'));
+            const prevBtn = root.querySelector('.carousel-prev');
+            const nextBtn = root.querySelector('.carousel-next');
+            if (slides.length === 0) return;
+
+            var idx = 0;
+            var total = slides.length;
+
+            function go(n) {
+                idx = (n + total) % total;
+                slides.forEach(function (slide, i) {
+                    var on = i === idx;
+                    slide.classList.toggle('is-active', on);
+                    if (on) {
+                        slide.removeAttribute('hidden');
+                        slide.setAttribute('aria-hidden', 'false');
+                    } else {
+                        slide.setAttribute('hidden', '');
+                        slide.setAttribute('aria-hidden', 'true');
+                    }
+                });
+                dots.forEach(function (dot, i) {
+                    dot.classList.toggle('is-active', i === idx);
+                    dot.setAttribute('aria-label', 'Slide ' + (i + 1) + ' of ' + total);
+                });
+            }
+
+            if (prevBtn) prevBtn.addEventListener('click', function () { go(idx - 1); });
+            if (nextBtn) nextBtn.addEventListener('click', function () { go(idx + 1); });
+
+            dots.forEach(function (dot, i) {
+                dot.addEventListener('click', function () { go(i); });
+            });
+
+            go(0);
+        });
     }
 
     // FAQ accordion functionality
