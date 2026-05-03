@@ -112,6 +112,13 @@ body {
     padding: 0 var(--spacing-md);
 }
 
+@media (max-width: 768px) {
+    .container {
+        padding-left: max(1rem, env(safe-area-inset-left, 0px));
+        padding-right: max(1rem, env(safe-area-inset-right, 0px));
+    }
+}
+
 /* Top announcement */
 .announcement-bar {
     position: fixed;
@@ -159,7 +166,10 @@ body {
     margin: 0;
     box-sizing: border-box;
     /* Full viewport width (not .container); gutters match nav / page content */
-    padding: 0.55rem var(--spacing-md);
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
+    padding-left: max(var(--spacing-md), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--spacing-md), env(safe-area-inset-right, 0px));
     /* Pill + CTA fixed; middle grows so copy is centered in the gap (equal slack L/R of text) */
     display: flex;
     align-items: center;
@@ -236,6 +246,10 @@ body {
 .announcement-sub strong {
     color: var(--foreground);
     font-weight: 700;
+}
+
+.announcement-sub--compact {
+    display: none;
 }
 
 .announcement-inline-link {
@@ -317,12 +331,23 @@ body {
         align-items: center;
         align-content: center;
         justify-content: center;
-        row-gap: 0.75rem;
-        column-gap: 0.65rem;
-        padding: 0.55rem 1rem 0.6rem;
-        max-width: min(22rem, 100%);
-        margin-left: auto;
-        margin-right: auto;
+        row-gap: 0.5rem;
+        column-gap: 0.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.55rem;
+        padding-left: max(1rem, env(safe-area-inset-left, 0px));
+        padding-right: max(1rem, env(safe-area-inset-right, 0px));
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .announcement-sub--full {
+        display: none;
+    }
+
+    .announcement-sub--compact {
+        display: inline;
     }
 
     /* Flatten mid wrapper so pill / text / CTA participate in the flex layout (order, wrap) */
@@ -374,6 +399,38 @@ body {
         padding: 0.35rem 0.85rem;
         font-size: 0.75rem;
         align-items: center;
+    }
+
+    .hero {
+        padding-top: calc(var(--announcement-bar-height) + 3.75rem + var(--spacing-sm));
+        padding-bottom: var(--spacing-lg);
+    }
+
+    .hero-inner {
+        gap: var(--spacing-md);
+    }
+
+    .version-badge {
+        padding: 0.3rem 0.75rem;
+        margin-bottom: var(--spacing-sm);
+        gap: 0.35rem;
+    }
+
+    .badge-text {
+        font-size: 0.65rem;
+        letter-spacing: 0.05em;
+    }
+
+    .hero-title {
+        font-size: clamp(1.85rem, 8.5vw, 2.45rem);
+        line-height: 1.12;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        line-height: 1.65;
+        margin-bottom: var(--spacing-md);
     }
 }
 
