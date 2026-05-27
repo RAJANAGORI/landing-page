@@ -1,10 +1,9 @@
 // Service Worker for Nightingale Landing Page
 // Provides offline support and caching
 
-const CACHE_NAME = 'nightingale-v1.0.0';
+const CACHE_NAME = 'nightingale-v1.0.1';
 const urlsToCache = [
   '/',
-  '/index.html',
   '/assets/css/main.min.css',
   '/assets/js/main.min.js',
   '/assets/images/Nightingale.webp',
@@ -47,6 +46,14 @@ self.addEventListener('activate', (event) => {
 
 // Fetch event - serve from cache, fallback to network
 self.addEventListener('fetch', (event) => {
+  const url = new URL(event.request.url);
+
+  // Let Cloudflare's /index.html → / redirect apply; never serve a cached copy.
+  if (url.pathname === '/index.html') {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
@@ -71,7 +78,7 @@ self.addEventListener('fetch', (event) => {
       .catch(() => {
         // If both cache and network fail, return offline page
         if (event.request.destination === 'document') {
-          return caches.match('/index.html');
+          return caches.match('/');
         }
       })
   );
