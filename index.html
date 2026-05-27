@@ -253,68 +253,12 @@
           "description": "OWASP Incubator Project: comprehensive penetration testing tools and Nightingale web GUI in Docker; hosted demo at nightingale-security.com by GitHub request, with open development on GitHub"
         },
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://nightingale-security.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Features",
-              "item": "https://nightingale-security.com/#lifecycle"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Product",
-              "item": "https://nightingale-security.com/#product"
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "name": "Tools",
-              "item": "https://nightingale-security.com/#tools"
-            },
-            {
-              "@type": "ListItem",
-              "position": 5,
-              "name": "Architecture",
-              "item": "https://nightingale-security.com/#architecture"
-            },
-            {
-              "@type": "ListItem",
-              "position": 6,
-              "name": "Recognition",
-              "item": "https://nightingale-security.com/#recognition"
-            },
-            {
-              "@type": "ListItem",
-              "position": 7,
-              "name": "Advanced capabilities",
-              "item": "https://nightingale-security.com/#road-ahead"
-            },
-            {
-              "@type": "ListItem",
-              "position": 8,
-              "name": "Getting Started",
-              "item": "https://nightingale-security.com/#getting-started"
-            },
-            {
-              "@type": "ListItem",
-              "position": 9,
-              "name": "FAQ",
-              "item": "https://nightingale-security.com/#faq"
-            }
-          ]
-        },
-        {
           "@type": "FAQPage",
           "@id": "https://nightingale-security.com/#faqpage",
-          "url": "https://nightingale-security.com/#faq",
+          "url": "https://nightingale-security.com/",
+          "isPartOf": {
+            "@id": "https://nightingale-security.com/#webpage"
+          },
           "name": "Nightingale FAQ - Frequently Asked Questions",
           "description": "Answers about Nightingale v2.0, the live hosted GUI at nightingale-security.com, Docker deployment, and penetration testing workflows",
           "mainEntity": [
@@ -401,28 +345,28 @@
               "position": 1,
               "name": "Install Docker",
               "text": "Download and install Docker Desktop (or Docker Engine) for Windows, macOS, or Linux.",
-              "url": "https://nightingale-security.com/#getting-started"
+              "url": "https://nightingale-security.com/"
             },
             {
               "@type": "HowToStep",
               "position": 2,
               "name": "Pull the Nightingale image",
               "text": "Pull the stable image from GitHub Container Registry: docker pull ghcr.io/rajanagori/nightingale:stable",
-              "url": "https://nightingale-security.com/#getting-started"
+              "url": "https://nightingale-security.com/"
             },
             {
               "@type": "HowToStep",
               "position": 3,
               "name": "Run the container",
               "text": "Start the container with port mapping, for example mapping host port 8080 to the service: docker run -d -p 8080:8080 --name nightingale ghcr.io/rajanagori/nightingale:stable",
-              "url": "https://nightingale-security.com/#getting-started"
+              "url": "https://nightingale-security.com/"
             },
             {
               "@type": "HowToStep",
               "position": 4,
               "name": "Open the web GUI",
               "text": "In your browser, go to http://localhost:8080 to access the Nightingale interface.",
-              "url": "https://nightingale-security.com/#getting-started"
+              "url": "https://nightingale-security.com/"
             }
           ]
         }
