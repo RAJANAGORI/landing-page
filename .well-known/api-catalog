@@ -1,0 +1,44 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://dashboard.nightingale-security.com/",
+      "service-desc": [
+        {
+          "href": "https://github.com/RAJANAGORI/Nightingale/blob/main/docs/openapi.yaml",
+          "type": "application/openapi+yaml"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://github.com/RAJANAGORI/Nightingale/wiki",
+          "type": "text/html"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://dashboard.nightingale-security.com/health",
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://nightingale-security.com/",
+      "service-desc": [
+        {
+          "href": "https://nightingale-security.com/.well-known/mcp/server-card.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://nightingale-security.com/index.md",
+          "type": "text/markdown"
+        },
+        {
+          "href": "https://nightingale-security.com/auth.md",
+          "type": "text/markdown"
+        }
+      ]
+    }
+  ]
+}

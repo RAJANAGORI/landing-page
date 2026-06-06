@@ -1,0 +1,15 @@
+{
+  "resource": "https://nightingale-security.com/",
+  "authorization_servers": [
+    "https://nightingale-security.com"
+  ],
+  "scopes_supported": [
+    "nightingale.read",
+    "nightingale.console",
+    "nightingale.scans"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ],
+  "resource_documentation": "https://nightingale-security.com/auth.md"
+}

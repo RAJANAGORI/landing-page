@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "nightingale-overview",
+      "type": "skill-md",
+      "description": "Overview of Nightingale v2.0 OWASP Docker pentesting framework, capabilities, and discovery endpoints",
+      "url": "https://nightingale-security.com/.well-known/agent-skills/nightingale-overview/SKILL.md",
+      "digest": "sha256:65b01dbd5c27c2b533da72aa7e0d4c411fd5401136b7157d12bd981094f48d3f"
+    },
+    {
+      "name": "request-access",
+      "type": "skill-md",
+      "description": "Instructions for requesting hosted Nightingale GUI access via GitHub issue registration",
+      "url": "https://nightingale-security.com/.well-known/agent-skills/request-access/SKILL.md",
+      "digest": "sha256:de697a58bcb1a3fe10f010ef041544eec8be0da919009ce93ee07755a231e089"
+    }
+  ]
+}

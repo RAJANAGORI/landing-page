@@ -1,0 +1,12 @@
+name = "nightingale-agent-discovery"
+main = "agent-discovery.js"
+compatibility_date = "2024-01-01"
+
+# Update account_id and routes after deploying to your Cloudflare account.
+# routes = [
+#   { pattern = "nightingale-security.com/*", zone_name = "nightingale-security.com" }
+# ]
+
+[vars]
+# GitHub Pages serves this repo at rajanagori.github.io/landing-page/
+# If your Pages URL differs, update ORIGIN in agent-discovery.js instead.

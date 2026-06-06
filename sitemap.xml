@@ -7,9 +7,37 @@
     <!-- Single canonical document; section anchors are discoverable from the page -->
     <url>
         <loc>https://nightingale-security.com/</loc>
-        <lastmod>2026-05-04</lastmod>
+        <lastmod>2026-06-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+    </url>
+
+    <url>
+        <loc>https://nightingale-security.com/index.md</loc>
+        <lastmod>2026-06-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://nightingale-security.com/auth.md</loc>
+        <lastmod>2026-06-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://nightingale-security.com/.well-known/api-catalog</loc>
+        <lastmod>2026-06-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://nightingale-security.com/.well-known/agent-skills/index.json</loc>
+        <lastmod>2026-06-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
     </url>
 
 </urlset>

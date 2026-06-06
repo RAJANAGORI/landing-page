@@ -26,3 +26,41 @@
 
 /*.txt
   Cache-Control: public, max-age=86400
+
+# Agent discovery resources
+/.well-known/api-catalog
+  Content-Type: application/linkset+json; charset=utf-8
+  Cache-Control: public, max-age=86400
+
+/.well-known/oauth-protected-resource
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=86400
+
+/.well-known/oauth-authorization-server
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=86400
+
+/.well-known/openid-configuration
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=86400
+
+/.well-known/jwks.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=86400
+
+/.well-known/mcp/server-card.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=86400
+
+/.well-known/agent-skills/index.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=86400
+
+/index.md
+  Content-Type: text/markdown; charset=utf-8
+  Cache-Control: public, max-age=3600, must-revalidate
+  Vary: Accept
+
+/auth.md
+  Content-Type: text/markdown; charset=utf-8
+  Cache-Control: public, max-age=86400

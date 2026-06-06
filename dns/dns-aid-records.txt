@@ -1,0 +1,19 @@
+# DNS for AI Discovery (DNS-AID) records for nightingale-security.com
+#
+# Add these records in your DNS provider (Cloudflare DNS recommended).
+# Enable DNSSEC on the zone so validating resolvers return authenticated data.
+#
+# Cloudflare: DNS → Records → Add record (type: SVCB or HTTPS)
+# Also enable: DNS → Settings → DNSSEC → Enable
+
+# Index entrypoint — advertises the site root for agent discovery
+_index._agents.nightingale-security.com. 3600 IN SVCB 1 nightingale-security.com. alpn="h3,h2,http/1.1" port=443 mandatory=alpn,port
+
+# MCP transport entrypoint — points agents to the MCP server
+_mcp._agents.nightingale-security.com. 3600 IN SVCB 1 dashboard.nightingale-security.com. alpn="h3,h2,http/1.1" port=443 mandatory=alpn,port key9999="https://dashboard.nightingale-security.com/mcp"
+
+# API catalog entrypoint
+_api._agents.nightingale-security.com. 3600 IN SVCB 1 nightingale-security.com. alpn="h3,h2,http/1.1" port=443 mandatory=alpn,port key9998="https://nightingale-security.com/.well-known/api-catalog"
+
+# HTTPS alias records (alternative to SVCB for HTTPS-only endpoints)
+_index._agents.nightingale-security.com. 3600 IN HTTPS 1 nightingale-security.com. alpn="h3,h2" port=443

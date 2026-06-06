@@ -1,7 +1,7 @@
 // Service Worker for Nightingale Landing Page
 // Provides offline support and caching
 
-const CACHE_NAME = 'nightingale-v1.0.1';
+const CACHE_NAME = 'nightingale-v1.1.0';
 const urlsToCache = [
   '/',
   '/assets/css/main.min.css',
@@ -9,7 +9,12 @@ const urlsToCache = [
   '/assets/images/Nightingale.webp',
   '/assets/images/Nightingale.png',
   '/robots.txt',
-  '/sitemap.xml'
+  '/sitemap.xml',
+  '/index.md',
+  '/auth.md',
+  '/.well-known/api-catalog',
+  '/.well-known/agent-skills/index.json',
+  '/.well-known/mcp/server-card.json'
 ];
 
 // Install event - cache resources
