@@ -1,8 +1,8 @@
 /**
  * Cloudflare Worker: Agent discovery headers and markdown content negotiation.
  *
- * Deploy as a route on nightingale-security.com (Dashboard → Workers → Routes).
- * Uses pass-through fetch to GitHub Pages origin, then injects headers.
+ * Deploy: cd infra/cloudflare && npx wrangler deploy
+ * Route: nightingale-security.com/*
  */
 
 const LINK_HEADERS = [
@@ -39,7 +39,6 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    // Markdown content negotiation for homepage
     if ((path === '/' || path === '/index.html') && wantsMarkdown(request)) {
       const mdRequest = new Request(new URL('/index.md', url.origin), request);
       const mdResponse = await fetch(mdRequest);
@@ -55,7 +54,6 @@ export default {
       }
     }
 
-    // Pass-through to origin (GitHub Pages)
     const response = await fetch(request);
     const headers = new Headers(response.headers);
 

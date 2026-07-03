@@ -1,11 +1,12 @@
 // Service Worker for Nightingale Landing Page
 // Provides offline support and caching
 
-const CACHE_NAME = 'nightingale-v1.3.0';
+const CACHE_NAME = 'nightingale-v1.4.0';
 const urlsToCache = [
   '/',
   '/assets/css/main.css',
   '/assets/js/main.js',
+  '/assets/js/webmcp.js',
   '/assets/images/Nightingale.webp',
   '/assets/images/Nightingale.png',
   '/robots.txt',
