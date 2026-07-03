@@ -21,38 +21,109 @@ def minify_css(css_content):
     css_content = css_content.strip()
     return css_content
 
+def _strip_js_comments(js_content):
+    """Remove JS comments without touching // inside string literals or URLs."""
+    result = []
+    i = 0
+    n = len(js_content)
+    in_single = False
+    in_double = False
+    in_multiline = False
+    in_line_comment = False
+
+    while i < n:
+        c = js_content[i]
+        nxt = js_content[i + 1] if i + 1 < n else ''
+
+        if in_line_comment:
+            if c == '\n':
+                in_line_comment = False
+                result.append(c)
+            i += 1
+            continue
+
+        if in_multiline:
+            if c == '*' and nxt == '/':
+                in_multiline = False
+                i += 2
+            else:
+                i += 1
+            continue
+
+        if in_single:
+            result.append(c)
+            if c == '\\' and i + 1 < n:
+                result.append(nxt)
+                i += 2
+            elif c == "'":
+                in_single = False
+                i += 1
+            else:
+                i += 1
+            continue
+
+        if in_double:
+            result.append(c)
+            if c == '\\' and i + 1 < n:
+                result.append(nxt)
+                i += 2
+            elif c == '"':
+                in_double = False
+                i += 1
+            else:
+                i += 1
+            continue
+
+        if c == '/' and nxt == '/':
+            in_line_comment = True
+            i += 2
+            continue
+        if c == '/' and nxt == '*':
+            in_multiline = True
+            i += 2
+            continue
+        if c == "'":
+            in_single = True
+            result.append(c)
+            i += 1
+            continue
+        if c == '"':
+            in_double = True
+            result.append(c)
+            i += 1
+            continue
+
+        result.append(c)
+        i += 1
+
+    return ''.join(result)
+
+
 def minify_js(js_content):
-    """Minify JavaScript by removing comments and unnecessary whitespace"""
-    # Remove single-line comments (but not URLs)
-    js_content = re.sub(r'//.*?(?=\n|$)', '', js_content)
-    # Remove multi-line comments
-    js_content = re.sub(r'/\*.*?\*/', '', js_content, flags=re.DOTALL)
-    
-    # Protect string literals to preserve spaces before negative numbers
+    """Minify JavaScript by removing comments and unnecessary whitespace."""
+    js_content = _strip_js_comments(js_content)
+
     string_placeholders = {}
     placeholder_idx = 0
-    
+
     def replace_string(match):
         nonlocal placeholder_idx
         placeholder = f'__STR{placeholder_idx}__'
         string_placeholders[placeholder] = match.group(0)
         placeholder_idx += 1
         return placeholder
-    
-    # Protect all quoted strings
-    js_content = re.sub(r'["\'][^"\']*["\']', replace_string, js_content)
-    
-    # Remove extra whitespace
+
+    # Protect quoted strings before whitespace collapse
+    js_content = re.sub(r'"(?:[^"\\]|\\.)*"', replace_string, js_content)
+    js_content = re.sub(r"'(?:[^'\\]|\\.)*'", replace_string, js_content)
+
     js_content = re.sub(r'\s+', ' ', js_content)
-    # Remove whitespace around operators
     js_content = re.sub(r'\s*([{}();,=+\-*/])\s*', r'\1', js_content)
-    # Remove leading/trailing whitespace
     js_content = js_content.strip()
-    
-    # Restore protected strings
+
     for placeholder, original in string_placeholders.items():
         js_content = js_content.replace(placeholder, original)
-    
+
     return js_content
 
 def extract_critical_css(css_content):
