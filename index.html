@@ -61,10 +61,10 @@
     <meta name="theme-color" content="#050508">
 
     <!-- Preload critical resources with fetchpriority -->
-    <link rel="preload" href="assets/css/main.min.css" as="style">
+    <link rel="preload" href="assets/css/main.css" as="style">
     <link rel="preload" href="assets/images/Nightingale.webp" as="image" fetchpriority="high" type="image/webp">
     <link rel="preload" href="assets/images/Nightingale.png" as="image" fetchpriority="high">
-    <link rel="preload" href="assets/js/main.min.js" as="script">
+    <link rel="preload" href="assets/js/main.js" as="script">
 
     <!-- Load fonts with font-display: swap for better performance -->
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -97,8 +97,8 @@
         }
     </style>
     <!-- Non-critical CSS - Load asynchronously -->
-    <link rel="preload" href="assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="assets/css/main.min.css"></noscript>
+    <link rel="preload" href="assets/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/main.css"></noscript>
     
     <!-- Icons - Load Font Awesome asynchronously -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -1808,7 +1808,7 @@
     </footer>
 
     <!-- Scripts - Defer non-critical JavaScript (minified) -->
-    <script src="assets/js/main.min.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
     
     <!-- Service Worker Registration -->
     <script>
