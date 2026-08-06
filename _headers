@@ -1,5 +1,17 @@
-# Cache headers for static assets
-# Note: GitHub Pages doesn't support custom headers, but Cloudflare can override these
+# Cache + security headers for static assets
+# Note: GitHub Pages does not emit these; Cloudflare Worker / Transform Rules must apply them.
+# See infra/cloudflare/SECURITY_HEADERS.md and infra/cloudflare/agent-discovery.js
+
+# SECURITY: Browser hardening for all apex responses (XSS/clickjacking/MIME/HTTPS sticky).
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-site
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com https://*.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
 
 # HTML files - short cache with revalidation
 /*.html
@@ -54,6 +66,10 @@
 
 /.well-known/agent-skills/index.json
   Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=86400
+
+/.well-known/security.txt
+  Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=86400
 
 /index.md

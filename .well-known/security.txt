@@ -1,0 +1,6 @@
+Contact: mailto:security@rajanagori.in
+Expires: 2027-08-06T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://nightingale-security.com/.well-known/security.txt
+Policy: https://github.com/RAJANAGORI/Nightingale-GUI/blob/main/SECURITY.md
+Acknowledgments: https://github.com/RAJANAGORI/Nightingale-GUI/security/advisories

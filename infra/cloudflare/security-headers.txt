@@ -1,0 +1,48 @@
+Apex security headers (nightingale-security.com)
+================================================
+
+Web Check scores the apex marketing origin (GitHub Pages behind Cloudflare).
+GitHub Pages does not emit _headers security policies — apply them at Cloudflare.
+
+Preferred: Worker (agent-discovery.js)
+--------------------------------------
+Sets CSP, HSTS, XCTO, XFO, Referrer-Policy, Permissions-Policy, COOP, CORP,
+and strips Access-Control-Allow-Origin: *.
+
+  cd infra/cloudflare
+  npx wrangler login
+  npx wrangler deploy
+
+Attach route: nightingale-security.com/*  (NOT dashboard.*)
+
+Fallback: Transform Rules -> Modify Response Header
+---------------------------------------------------
+Dashboard: Rules -> Transform Rules -> Modify Response Header
+
+When: hostname is nightingale-security.com OR www.nightingale-security.com
+
+Set:
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-site
+  Content-Security-Policy: (use MARKETING_CSP from agent-discovery.js)
+
+Also remove Access-Control-Allow-Origin when present.
+
+SSL/TLS edge
+------------
+SSL/TLS -> Edge Certificates:
+  - Always Use HTTPS: on
+  - HSTS: max-age 12 months, include subdomains
+  - Preload: only after intentional HSTS preload submission
+
+Verify
+------
+  curl -sI https://nightingale-security.com/ | grep -iE 'content-security|strict-transport|x-frame|x-content|referrer|permissions|cross-origin|access-control'
+  curl -s https://nightingale-security.com/.well-known/security.txt
+
+Re-run: https://web-check.xyz/check/nightingale-security.com
