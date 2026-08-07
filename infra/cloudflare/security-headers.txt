@@ -1,48 +1,32 @@
-Apex security headers (nightingale-security.com)
-================================================
+WHY securityheaders.com shows F on nightingale-security.com
+============================================================
 
-Web Check scores the apex marketing origin (GitHub Pages behind Cloudflare).
-GitHub Pages does not emit _headers security policies — apply them at Cloudflare.
+GitHub Pages (origin) IGNORES _headers for security policies.
+security.txt is already live from Pages. Response security headers
+are NOT — they only appear after the Cloudflare Worker is on the
+request path (or Transform Rules are created in the CF dashboard).
 
-Preferred: Worker (agent-discovery.js)
---------------------------------------
-Sets CSP, HSTS, XCTO, XFO, Referrer-Policy, Permissions-Policy, COOP, CORP,
-and strips Access-Control-Allow-Origin: *.
+Code is ready in:
+  - infra/cloudflare/agent-discovery.js  (sets all graded headers + strips ACAO *)
+  - infra/cloudflare/wrangler.toml       (routes for apex + www)
+  - _headers                            (documentation / future CF Pages)
 
+Deploy NOW (local — needs browser login):
   cd infra/cloudflare
-  npx wrangler login
-  npx wrangler deploy
+  ./deploy.sh
 
-Attach route: nightingale-security.com/*  (NOT dashboard.*)
+Or CI: add repo secrets CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID,
+then push / run workflow "Deploy Cloudflare Worker".
 
-Fallback: Transform Rules -> Modify Response Header
----------------------------------------------------
-Dashboard: Rules -> Transform Rules -> Modify Response Header
+Fallback (no Worker): Cloudflare Dashboard → Rules → Transform Rules
+→ Modify Response Header — copy values from agent-discovery.js
+applySecurityHeaders() / MARKETING_CSP. Also remove
+Access-Control-Allow-Origin.
 
-When: hostname is nightingale-security.com OR www.nightingale-security.com
+Also enable: SSL/TLS → Edge Certificates → Always Use HTTPS + HSTS.
 
-Set:
-  Strict-Transport-Security: max-age=31536000; includeSubDomains
-  X-Content-Type-Options: nosniff
-  X-Frame-Options: DENY
-  Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Resource-Policy: same-site
-  Content-Security-Policy: (use MARKETING_CSP from agent-discovery.js)
+Do NOT attach this Worker to dashboard.nightingale-security.com.
 
-Also remove Access-Control-Allow-Origin when present.
-
-SSL/TLS edge
-------------
-SSL/TLS -> Edge Certificates:
-  - Always Use HTTPS: on
-  - HSTS: max-age 12 months, include subdomains
-  - Preload: only after intentional HSTS preload submission
-
-Verify
-------
-  curl -sI https://nightingale-security.com/ | grep -iE 'content-security|strict-transport|x-frame|x-content|referrer|permissions|cross-origin|access-control'
-  curl -s https://nightingale-security.com/.well-known/security.txt
-
-Re-run: https://web-check.xyz/check/nightingale-security.com
+Verify:
+  curl -sI https://nightingale-security.com/ | grep -iE 'strict-transport|content-security|x-frame|x-content|referrer|permissions|access-control'
+  https://securityheaders.com/?q=https%3A%2F%2Fnightingale-security.com%2F&followRedirects=on

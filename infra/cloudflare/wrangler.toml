@@ -2,6 +2,9 @@ name = "nightingale-agent-discovery"
 main = "agent-discovery.js"
 compatibility_date = "2024-01-01"
 
-# routes = [
-#   { pattern = "nightingale-security.com/*", zone_name = "nightingale-security.com" }
-# ]
+# SECURITY: Attach Worker to apex only — dashboard.* sets its own Next.js headers.
+# Deploy: npx wrangler login && npx wrangler deploy
+routes = [
+  { pattern = "nightingale-security.com/*", zone_name = "nightingale-security.com" },
+  { pattern = "www.nightingale-security.com/*", zone_name = "nightingale-security.com" }
+]

@@ -1,6 +1,6 @@
 # Cache + security headers for static assets
 # Note: GitHub Pages does not emit these; Cloudflare Worker / Transform Rules must apply them.
-# See infra/cloudflare/SECURITY_HEADERS.md and infra/cloudflare/agent-discovery.js
+# See infra/cloudflare/security-headers.txt and infra/cloudflare/agent-discovery.js
 
 # SECURITY: Browser hardening for all apex responses (XSS/clickjacking/MIME/HTTPS sticky).
 /*
