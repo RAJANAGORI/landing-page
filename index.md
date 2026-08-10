@@ -1,4 +1,4 @@
-# Nightingale v2.0 — OWASP Docker Pentesting
+# Nightingale v2.0 — Live web gui pentesting tool on Docker
 
 > Docker for Pentesters — A comprehensive penetration testing framework with web-based GUI and 200+ security tools.
 
